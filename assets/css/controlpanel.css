@@ -1,0 +1,43 @@
+/*==== Containers ====*/
+
+#container {
+	width: 80%;
+	margin: 20px auto;
+}
+
+#content-wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+}
+
+/*==== Header ====*/
+
+#header {
+	background-color: gray;
+	padding: 10px;
+	text-align: right;
+}
+
+#header > h3 {
+	margin: 0;
+}
+
+/*==== Menu ====*/
+
+#menu {
+	flex: 1 200px;
+	order: 1;
+	padding: 10px;
+	background-color: gray;
+}
+
+/*==== Content ====*/
+
+#content {
+	flex: 1 100%;
+	order: 2;
+	padding: 10px;
+	min-width: 400px;
+	background-color: lightgray;
+}

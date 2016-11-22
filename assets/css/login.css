@@ -1,0 +1,24 @@
+/*==== Containers ====*/
+
+html, body {
+	height: 80%;
+}
+
+#container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*==== Content ====*/
+
+#content {
+	padding: 10px;
+	width: 300px;
+	background-color: lightgray;
+}
+
+input[type="text"], input[type="password"] {
+	width: 80%;
+}
