@@ -41,7 +41,12 @@ function login(e) {
         url: 'Auth/login',
         data: data,
         success: function(data) {
-            console.log(data);
+            let json = $.parseJSON(data);
+
+            if (json.error)
+                $('#info').text(json.error);
+            else
+                location.reload(true);
         }
     });
 }

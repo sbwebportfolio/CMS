@@ -37,6 +37,11 @@ class Auth extends CI_Controller
             echo json_encode(["error" => "Invalid login data, please try again."]);
     }
 
+    public function logout()
+    {
+        $this->ion_auth->logout();
+    }
+
     public function recover()
     {
 
