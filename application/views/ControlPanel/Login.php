@@ -8,8 +8,8 @@
 		<title>Log in to control panel</title>
 		
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="assets/js/login.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/login.js"></script>
 
         <!-- Stylesheets -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
                 <form id="login-form">
                     <h3>Log in</h3>
                     <p>
-                        <label for="user">E-mail or username</label><br>
+                        <label for="user">E-mail address</label><br>
                         <input id="user" name="user" type="text">
                     </p>
                     <p>
@@ -34,7 +34,7 @@
                         <label for="remember">Remember me</label>
                     </p>
                     <p>
-                        <button type="button" id="login-submit">Log in</button>
+                        <button id="login-submit">Log in</button>
                         <button type="button" id="recover-button">Forgot password?</button>
                     </p>
                 </form>

@@ -1,8 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function() {
     // Set up the form and events.
     $('#recover-form').hide();
     $('#recover-button').on('click', showRecoverForm);
     $('#back-button').on('click', showLoginForm);
+    $("#login-form").on('submit', login);
 });
 
 /**
@@ -19,4 +20,28 @@ function showRecoverForm() {
 function showLoginForm() {
     $('#login-form').slideDown();
     $('#recover-form').slideUp();
+}
+
+/**
+ * Log the user in.
+ */
+function login(e) {
+    e.preventDefault();
+
+    // Get the login data.
+    var data = {
+        user: $('#user').val(),
+        pass: $('#pass').val(),
+        remember: $('#remember').is(':checked')
+    };
+
+    // Do the request.
+    $.ajax({
+        type: 'POST',
+        url: 'Auth/login',
+        data: data,
+        success: function(data) {
+            console.log(data);
+        }
+    });
 }
