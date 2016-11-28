@@ -31,7 +31,7 @@ class Auth extends CI_Controller
         // Check if the max login attempts is exceeded.
         if ($this->ion_auth->is_max_login_attempts_exceeded($id))
             echo json_encode(["error" => "The maximum number of login attempts is exceeded."]);
-        else if ($this->ion_auth->login($email, $pass, $remember))
+        else if ($this->ion_auth->login($id, $pass, $remember))
             echo json_encode(["success" => TRUE]);
         else
             echo json_encode(["error" => "Invalid login data, please try again."]);
