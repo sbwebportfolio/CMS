@@ -24,7 +24,21 @@ class ControlPanel extends CI_Controller
 
         // Get the requested menu, check if it is valid.
         $menu = $this->input->get('menu');
-        if (in_array($menu, self::MENU_ITEMS))        
-            $this->load->view('ControlPanel/views/' . $menu);
+        if (in_array($menu, self::MENU_ITEMS))
+        {
+            // Get the right method, and if it exists call it to load the data.
+            $function = 'show_' . $menu;
+            $data = method_exists($this, $function) ? $this->$function() : [];
+
+            $this->load->view('ControlPanel/views/' . $menu, $data);
+        }
+    }
+
+    /*==== View-specific data loading functions. ====*/
+
+    private function show_users()
+    {
+        $this->load->model('users');
+        return [ 'users' => $this->users->all() ];
     }
 }

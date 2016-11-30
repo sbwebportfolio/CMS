@@ -31,13 +31,14 @@
 	background-color: gray;
 }
 
-.menu-item {
+div[menu] {
 	cursor: pointer;
-	width: 100%;
+	width: 95%;
 	padding: 10px;
+	margin-left: 5%;
 }
 
-.menu-item:hover, .menu-item.highlight {
+div[menu]:hover, div[menu].highlight {
 	background-color: lightgray;
 }
 
@@ -49,4 +50,21 @@
 	padding: 10px;
 	min-width: 400px;
 	background-color: lightgray;
+}
+
+/*==== Users ====*/
+
+#users-table {
+	width: 80%;
+	border-collapse: collapse;
+}
+
+#users-table td, #users-table th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+}
+
+#users-table tr:nth-child(odd) {
+    background-color: #ddd;
 }

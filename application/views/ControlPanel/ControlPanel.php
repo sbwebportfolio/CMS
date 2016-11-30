@@ -22,10 +22,10 @@
 			</div>
 			<div id="content-wrapper">
 				<div id="menu">
-					<div id="menu-pages" menu="pages" class="menu-item">Pages</div>
-					<div id="menu-posts" menu="posts" class="menu-item">Posts</div>
-					<div id="menu-menus" menu="menus" class="menu-item">Menus</div>
-					<div id="menu-users" menu="users" class="menu-item">Users</div>
+					<div id="menu-pages" menu="pages">Pages</div>
+					<div id="menu-posts" menu="posts">Posts</div>
+					<div id="menu-menus" menu="menus">Menus</div>
+					<div id="menu-users" menu="users">Users</div>
 				</div>
 				<div id="content">
 					Something something content
