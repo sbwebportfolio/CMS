@@ -7,13 +7,13 @@
 		
 		<title>Log in to control panel</title>
 		
-        <!-- Scripts -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="assets/js/login.js"></script>
-
         <!-- Stylesheets -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/login.css" rel="stylesheet" type="text/css" />
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/login.js"></script>
 	</head>
     <body>
         <div id="container">
