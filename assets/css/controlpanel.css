@@ -11,15 +11,15 @@
 	flex-flow: row;
 }
 
-/*==== Header ====*/
+/*==== Header, footer ====*/
 
-#header {
+.row {
 	background-color: gray;
 	padding: 10px;
 	text-align: right;
 }
 
-#header > h3 {
+.row > h3 {
 	margin: 0;
 }
 
@@ -28,8 +28,17 @@
 #menu {
 	flex: 1 200px;
 	order: 1;
-	padding: 10px;
 	background-color: gray;
+}
+
+.menu-item {
+	cursor: pointer;
+	width: 100%;
+	padding: 10px;
+}
+
+.menu-item:hover {
+	background-color: lightgray;
 }
 
 /*==== Content ====*/

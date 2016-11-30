@@ -12,19 +12,22 @@
 	</head>
 	<body>
 		<div id="container">
-			<div id="header">
+			<div class="row">
 				<h3>Hello, user<h3>
 			</div>
 			<div id="content-wrapper">
 				<div id="menu">
-					<p>Pages</p>
-					<p>Posts</p>
-					<p>Menus</p>
-					<p>Users</p>
+					<div id="menu-pages" class="menu-item">Pages</div>
+					<div id="menu-posts"  class="menu-item">Posts</div>
+					<div id="menu-menus"  class="menu-item">Menus</div>
+					<div id="menu-users"  class="menu-item">Users</div>
 				</div>
 				<div id="content">
 					Something something content
 				</div>
+			</div>
+			<div class="row">
+				<h3>Control panel made by Scorpiac</h3>
 			</div>
 		</div>
 	</body>
