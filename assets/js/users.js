@@ -32,7 +32,7 @@ function addUser(e) {
             var json = $.parseJSON(data);
 
             if (json.error)
-                $('#info').text(json.error);
+                $('#info').html(json.error);
             else
                 showMenu(menuItem);
         }

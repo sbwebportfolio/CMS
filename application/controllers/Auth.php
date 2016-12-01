@@ -9,17 +9,17 @@ class Auth extends CI_Controller
             exit('No direct script access allowed');
 
         // Get the data.
-        $id = $this->input->post('user');
+        $email = $this->input->post('user');
         $pass = $this->input->post('pass');
         $remember = $this->input->post('remember');
 
         // Check if the max login attempts is exceeded.
-        if ($this->ion_auth->is_max_login_attempts_exceeded($id))
+        if ($this->ion_auth->is_max_login_attempts_exceeded($email))
             echo json_encode(['error' => 'The maximum number of login attempts is exceeded.']);
-        else if ($this->ion_auth->login($id, $pass, $remember))
+        else if ($this->ion_auth->login($email, $pass, $remember))
             echo json_encode(['success' => TRUE]);
         else
-            echo json_encode(['error' => 'Invalid login data, please try again.']);
+            echo json_encode(['error' => $this->ion_auth->errors()]);
     }
 
     public function logout()
@@ -42,6 +42,17 @@ class Auth extends CI_Controller
         if (!$this->ion_auth->logged_in())
             echo json_encode(['error' => 'You are not authorized to add a new user.']);
 
-        echo json_encode(['success' => TRUE]);
+        // Get the data.
+        $email = $this->input->post('email');
+        $pass = $this->input->post('pass');
+
+        // Validate.
+        if (empty($email) || empty($pass))
+            echo json_encode(['error' => 'Not all fields are filled in.']);
+        // Register the user.
+        else if ($this->ion_auth->register($email, $pass, $email))
+            echo json_encode(['success' => TRUE]);
+        else
+            echo json_encode(['error' => $this->ion_auth->errors()]);
     }
 }

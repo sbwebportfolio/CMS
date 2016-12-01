@@ -44,7 +44,7 @@ function login(e) {
             var json = $.parseJSON(data);
 
             if (json.error)
-                $('#info').text(json.error);
+                $('#info').html(json.error);
             else
                 location.reload(true);
         }
