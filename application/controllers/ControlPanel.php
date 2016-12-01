@@ -41,6 +41,6 @@ class ControlPanel extends CI_Controller
     private function show_users()
     {
         $this->load->model('users');
-        return [ 'users' => $this->users->all() ];
+        return ['users' => $this->users->all()];
     }
 }

@@ -41,7 +41,7 @@ function login(e) {
         url: 'Auth/login',
         data: data,
         success: function(data) {
-            let json = $.parseJSON(data);
+            var json = $.parseJSON(data);
 
             if (json.error)
                 $('#info').text(json.error);
