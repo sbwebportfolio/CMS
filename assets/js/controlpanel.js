@@ -16,9 +16,15 @@ $(document).ready(function() {
     });
 
     // Hook into the hash change event.
-    showMenu(window.location.hash.substr(1));
-    $(window).bind('hashchange', function() { showMenu(window.location.hash.substr(1)); });
+    menuFromHash();
+    $(window).bind('hashchange', menuFromHash);
 });
+
+function menuFromHash() {
+    var hash = window.location.hash.substr(1);
+    if (hash)
+        showMenu(hash);
+}
 
 /**
  * Show a control panel menu.
