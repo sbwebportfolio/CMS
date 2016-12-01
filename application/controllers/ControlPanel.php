@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends CI_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users'
+        'pages', 'posts', 'menus', 'users', 'profile'
     ];
 
     public function index()
@@ -46,7 +46,11 @@ class ControlPanel extends CI_Controller
 
     private function show_users()
     {
-        $this->load->model('users');
-        return ['users' => $this->users->all()];
+        return ['users' => $this->ion_auth->users()->result()];
+    }
+
+    private function show_profile()
+    {
+        return ['user' => $this->ion_auth->user()->row()];
     }
 }

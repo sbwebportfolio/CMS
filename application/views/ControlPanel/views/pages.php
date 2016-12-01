@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<!-- Pages table. -->
 <h3>Pages</h3>
+
+<!-- Pages table. -->
 <table id="pages-table">
     <tr>
         <th>Title</th>

@@ -27,7 +27,14 @@ function showMenu(menu) {
             $('#content').html(data);
         },
         error: function(data) {
-            $('#content').html('<h1>An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
+            $('#content').html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
         }
     });
+}
+
+/**
+ * Refresh the current menu content.
+ */
+function refreshContent() {
+    showMenu(menuItem);
 }

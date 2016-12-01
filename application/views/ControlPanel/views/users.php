@@ -3,8 +3,9 @@
 <!-- Script to add a new user. -->
 <script type="text/javascript" src="assets/js/users.js"></script>
 
-<!-- Users table. -->
 <h3>Users</h3>
+
+<!-- Users table. -->
 <table id="users-table">
     <tr>
         <th>First name</th>
@@ -30,15 +31,15 @@
 <form id="user-add-form">
     <p>
         <label for="email">E-mail address</label><br>
-        <input id="email" name="email" type="text">
+        <input id="email" name="email" type="text" required>
     </p>
     <p>
         <label for="pass">Password</label><br>
-        <input id="pass" name="pass" type="password">
+        <input id="pass" name="pass" type="password" required>
     </p>
     <p>
         <label for="pass2">Repeat password</label><br>
-        <input id="pass2" name="pass2" type="password">
+        <input id="pass2" name="pass2" type="password" required>
     </p>
     <p>
         <button id="add-submit">Add user</button>

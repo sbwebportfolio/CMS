@@ -26,7 +26,7 @@ function addUser(e) {
     // Do the request.
     $.ajax({
         type: 'POST',
-        url: 'Auth/register',
+        url: 'User/register',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);
@@ -34,7 +34,7 @@ function addUser(e) {
             if (json.error)
                 $('#info').html(json.error);
             else
-                showMenu(menuItem);
+                refreshContent();
         }
     });
 }
