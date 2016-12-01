@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends CI_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile'
+        'pages', 'posts', 'menus', 'users', 'profile', 'edit', 'remove'
     ];
 
     public function index()

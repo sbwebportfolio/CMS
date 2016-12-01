@@ -19,6 +19,11 @@ input[type="text"], input[type="password"] {
 	width: 250px;
 }
 
+.link {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 /*==== Containers ====*/
 
 #container {

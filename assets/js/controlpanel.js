@@ -1,28 +1,53 @@
-$(document).ready(function() {
-    // Set up the menu events.
-    $('#menu').children().each(function(i, e) {
-        $(this).on('click', function() { showMenu($(this)); });
-    });
-});
-
 // Menu item properties.
 const menuHighlightClass = 'highlight';
-var menuItem;
+var currentMenu;
+var menuItems = {};
+
+/**
+ * The document ready event.
+ */
+$(document).ready(function() {
+    // Set up the menu.
+    $('#menu').children().each(function(i, e) {
+        var $this = $(this);
+        var menuString = $this.attr('menu');
+        $this.on('click', function() { showMenu(menuString); });
+        menuItems[menuString] = $this;
+    });
+
+    // Hook into the hash change event.
+    showMenu(window.location.hash.substr(1));
+    $(window).bind('hashchange', function() { showMenu(window.location.hash.substr(1)); });
+});
 
 /**
  * Show a control panel menu.
+ * 
+ * @param menuString The name of the menu.
+ * @param updateHash Whether to update the url hash.
+ * @param data The data to send with the request.
  */
-function showMenu(menu) {
-    // Set the menu item and highlight class.
-    if (menuItem != null)
-        menuItem.removeClass(menuHighlightClass);
-    menuItem = menu;
-    menuItem.addClass(menuHighlightClass);
+function showMenu(menuString, updateHash, data) {
+    // Get the previous and current menu item.
+    var prevMenu = menuItems[currentMenu];
+    var menu = menuItems[menuString];
+
+    // Un-highlight the previous menu, highlight the current one.
+    if (prevMenu)
+        prevMenu.removeClass(menuHighlightClass);
+    currentMenu = menuString;
+    if (menu)
+        menu.addClass(menuHighlightClass);
+
+    // Set the hash.
+    if (updateHash != false)
+        history.pushState(null, null, '#' + menuString);
 
     // Get the menu content.
     $.ajax({
         type: 'GET',
-        url: 'ControlPanel/show?menu=' + menu.attr('menu'),
+        url: 'ControlPanel/show?menu=' + menuString,
+        data: data,
         success: function(data) {
             $('#content').html(data);
         },
@@ -36,5 +61,5 @@ function showMenu(menu) {
  * Refresh the current menu content.
  */
 function refreshContent() {
-    showMenu(menuItem);
+    showMenu(currentMenu);
 }
