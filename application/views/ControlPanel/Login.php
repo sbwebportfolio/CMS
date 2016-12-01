@@ -8,7 +8,6 @@
 		<title>Log in to control panel</title>
 		
         <!-- Stylesheets -->
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/login.css" rel="stylesheet" type="text/css" />
 
         <!-- Scripts -->
