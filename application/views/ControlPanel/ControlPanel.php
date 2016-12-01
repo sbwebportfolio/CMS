@@ -8,6 +8,7 @@
 		<title>Control panel</title>
 		
 		<!-- Stylesheets -->
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
 
 		<!-- Scripts -->

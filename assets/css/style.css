@@ -1,0 +1,22 @@
+/*==== General elements ====*/
+
+#content {
+    background-color: #F0F0F0;
+}
+
+/*==== Input elements ====*/
+
+button, input[type="submit"] {
+    padding: 3px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    border-color: #333;
+}
+
+input[type="text"], input[type="password"], textarea {
+    padding: 3px 5px;
+    border-radius: 3px;
+}

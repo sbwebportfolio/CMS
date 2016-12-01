@@ -1,32 +1,17 @@
 /*==== Elements ====*/
 
-button, input[type="submit"] {
-    padding: 3px 5px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button:hover, input[type="submit"]:hover {
-    background-color: #d6f1f9;
-}
-
-input[type="text"], input[type="password"], textarea {
-    padding: 3px 5px;
-    border-radius: 3px;
-}
-
 table {
 	border-collapse: collapse;
 }
 
 table td, table th {
-    border: 1px solid #ddd;
+    border: 1px solid lightgray;
     text-align: left;
     padding: 10px;
 }
 
 table tr:nth-child(odd) {
-    background-color: #ddd;
+    background-color: lightgray;
 }
 
 /*==== Containers ====*/
@@ -64,13 +49,13 @@ table tr:nth-child(odd) {
 
 div[menu] {
 	cursor: pointer;
-	width: 95%;
+	width: calc(95% - 20px);
 	padding: 10px;
 	margin-left: 5%;
 }
 
 div[menu]:hover, div[menu].highlight {
-	background-color: lightgray;
+	background-color: #F0F0F0;
 }
 
 /*==== Content ====*/
@@ -80,7 +65,6 @@ div[menu]:hover, div[menu].highlight {
 	order: 2;
 	padding: 10px;
 	min-width: 400px;
-	background-color: lightgray;
 }
 
 /*==== Users ====*/
