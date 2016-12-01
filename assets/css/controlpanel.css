@@ -1,6 +1,7 @@
 /*==== Elements ====*/
 
 table {
+	width: 90%;
 	border-collapse: collapse;
 }
 
@@ -27,15 +28,22 @@ table tr:nth-child(odd) {
 	flex-flow: row;
 }
 
+#content {
+	flex: 1 100%;
+	order: 2;
+	padding: 10px;
+	min-width: 400px;
+}
+
 /*==== Header, footer ====*/
 
-.row {
+header, footer {
 	background-color: gray;
 	padding: 10px;
 	text-align: right;
 }
 
-.row > h3 {
+header > h3, footer > h3 {
 	margin: 0;
 }
 
@@ -56,19 +64,4 @@ div[menu] {
 
 div[menu]:hover, div[menu].highlight {
 	background-color: #F0F0F0;
-}
-
-/*==== Content ====*/
-
-#content {
-	flex: 1 100%;
-	order: 2;
-	padding: 10px;
-	min-width: 400px;
-}
-
-/*==== Users ====*/
-
-#users-table {
-	width: 80%;
 }

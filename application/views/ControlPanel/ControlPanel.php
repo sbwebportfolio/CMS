@@ -17,23 +17,23 @@
 	</head>
 	<body>
 		<div id="container">
-			<div class="row">
+			<header>
 				<h3>Hello, user<h3>
-			</div>
+			</header>
 			<div id="content-wrapper">
 				<div id="menu">
-					<div id="menu-pages" menu="pages">Pages</div>
-					<div id="menu-posts" menu="posts">Posts</div>
-					<div id="menu-menus" menu="menus">Menus</div>
-					<div id="menu-users" menu="users">Users</div>
+					<div menu="pages">Pages</div>
+					<div menu="posts">Posts</div>
+					<div menu="menus">Menus</div>
+					<div menu="users">Users</div>
 				</div>
 				<div id="content">
 					Something something content
 				</div>
 			</div>
-			<div class="row">
+			<footer>
 				<h3>Control panel made by Scorpiac</h3>
-			</div>
+			</footer>
 		</div>
 	</body>
 </html>

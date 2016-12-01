@@ -38,6 +38,12 @@ class ControlPanel extends CI_Controller
 
     /*==== View-specific data loading functions. ====*/
 
+    private function show_pages()
+    {
+        $this->load->model('pages');
+        return ['pages' => $this->pages->all()];
+    }
+
     private function show_users()
     {
         $this->load->model('users');
