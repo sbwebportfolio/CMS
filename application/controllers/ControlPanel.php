@@ -32,6 +32,8 @@ class ControlPanel extends CI_Controller
 
             $this->load->view('ControlPanel/views/' . $menu, $data);
         }
+        else
+            show_404();
     }
 
     /*==== View-specific data loading functions. ====*/

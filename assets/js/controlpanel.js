@@ -25,6 +25,9 @@ function showMenu(menu) {
         url: 'ControlPanel/show?menu=' + menu.attr('menu'),
         success: function(data) {
             $('#content').html(data);
+        },
+        error: function(data) {
+            $('#content').html('<h1>An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
         }
     });
 }
