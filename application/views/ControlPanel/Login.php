@@ -51,7 +51,7 @@
                     </p>
                 </form>
                 <!-- Information -->
-                <p id="info"></p>
+                <p id="info" class="error"></p>
             </div>
         </div>
     </body>

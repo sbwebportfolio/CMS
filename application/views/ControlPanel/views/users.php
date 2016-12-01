@@ -44,4 +44,4 @@
         <button id="add-submit">Add user</button>
     </p>
 </form>
-<p id="info"></p>
+<p id="info" class="error"></p>

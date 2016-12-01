@@ -9,13 +9,18 @@ $(document).ready(function() {
 function addUser(e) {
     e.preventDefault();
 
+    // Check if the passwords match.
     var pass = $('#pass').val();
-    var pass2
+    var pass2 = $('#pass2').val();
+    if (pass != pass2) {
+        $('#info').text('The passwords do not match.');
+        return;
+    }
 
     // Get the user data.
     var data = {
         email: $('#email').val(),
-        pass: $('#pass').val()
+        pass: pass
     };
 
     // Do the request.
