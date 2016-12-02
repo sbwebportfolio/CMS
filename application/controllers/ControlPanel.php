@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ControlPanel extends CI_Controller
+class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
         'pages', 'posts', 'menus', 'users', 'profile', 'edit', 'remove'

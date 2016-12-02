@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller
+class User extends My_Controller
 {
     /**
      * Log a user in.
@@ -46,7 +46,7 @@ class User extends CI_Controller
     public function register()
     {
         $this->checkAjax();
-        $this->checkLoggedIn();
+        $this->checkLoggedInAjax();
 
         // Check if the user is logged in and has the right permissions.
         if (!$this->ion_auth->is_admin())
@@ -74,7 +74,7 @@ class User extends CI_Controller
     public function update()
     {
         $this->checkAjax();
-        $this->checkLoggedIn();
+        $this->checkLoggedInAjax();
 
         // Get the data.
         $data = [
@@ -97,7 +97,7 @@ class User extends CI_Controller
     public function changePassword()
     {
         $this->checkAjax();
-        $this->checkLoggedIn();
+        $this->checkLoggedInAjax();
 
         $pass = $this->input->post('pass');
 
@@ -112,27 +112,6 @@ class User extends CI_Controller
     }
 
     /*==== Helper functions. ====*/
-
-    /**
-     * Check if the request is an AJAX request, or exit otherwise.
-     */
-    private function checkAjax()
-    {
-        if (!$this->input->is_ajax_request())
-            exit('No direct script access allowed');
-    }
-
-    /**
-     * Check if the user is logged in, or echo a JSON error and exit otherwise.
-     */
-     private function checkLoggedIn()
-     {
-         if (!$this->ion_auth->logged_in())
-         {
-            echo json_encode(['error' => 'You are not logged in.']);
-            exit();
-         }
-     }
 
      /**
       * Check if a password is valid.

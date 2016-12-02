@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Page extends CI_Controller
+class Page extends My_Controller
 {
     public function __construct()
     {
@@ -11,11 +11,8 @@ class Page extends CI_Controller
 
     public function remove()
     {
-        if (!$this->ion_auth->logged_in())
-        {
-            echo json_encode(['error' => 'You are not logged in.']);
-            exit();
-        }
+        $this->checkAjax();
+        $this->checkLoggedInAjax();
 
         $this->pages->remove($this->input->get('page'));
     }
