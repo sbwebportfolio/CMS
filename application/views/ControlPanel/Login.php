@@ -23,11 +23,11 @@
                     <h3>Log in</h3>
                     <p>
                         <label for="user">E-mail address</label><br>
-                        <input id="user" name="user" type="text">
+                        <input id="user" name="user" type="text" required>
                     </p>
                     <p>
                         <label for="pass">Password</label><br>
-                        <input id="pass" name="pass" type="password">
+                        <input id="pass" name="pass" type="password" required>
                     </p>
                     <p>
                         <input id="remember" name="remember" type="checkbox">
@@ -43,7 +43,7 @@
                     <h3>Recover account</h3>
                     <p>
                         <label for="email">E-mail address</label><br>
-                        <input id="email" name="email" type="text">
+                        <input id="email" name="email" type="text" required>
                     </p>
                     <p>
                         <button type="button" id="back-button">Go back</button>

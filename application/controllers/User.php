@@ -37,7 +37,31 @@ class User extends My_Controller
      */
     public function recover()
     {
-        $this->checkAjax();
+        //$this->checkAjax();
+
+        $email = $this->input->get('email');
+
+        // Get the recovery code.
+        $reset = $this->ion_auth->forgotten_password($email);
+        if (!$reset)
+            echo json_encode(['error' => 'Unknown e-mail address.']);
+        else
+        {
+            $code = $reset['forgotten_password_code'];
+
+            // Get the site, for 'from'.
+            $url = substr(base_url(), 7);
+            if (strpos($url, '/') === 0)
+                $url = substr($url, 1);
+
+            // Send the recovery mail.
+            $this->load->library('email');
+            $this->email->from('recovery@' . $url, $url);
+            $this->email->to($email);
+            $this->email->subject('Password recovery');
+            $this->email->message('Your password recovery code: ' . $code);
+            $this->email->send();
+        }
     }
 
     /**
