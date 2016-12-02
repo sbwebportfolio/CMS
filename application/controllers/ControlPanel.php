@@ -53,4 +53,10 @@ class ControlPanel extends CI_Controller
     {
         return ['user' => $this->ion_auth->user()->row()];
     }
+
+    private function show_remove()
+    {
+        $this->load->model('pages');
+        return ['page' => $this->pages->get($this->input->get('page'))];
+    }
 }

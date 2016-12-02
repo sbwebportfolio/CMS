@@ -8,9 +8,26 @@ class Pages extends CI_Model
      */
     public function all()
     {
-        $this->db->select('id, title, created, updated');
+        return $this->db->get('pages')->result();
+    }
+
+    /**
+     * Get a page by its id.
+     */
+    public function get($id)
+    {
+        $this->db->where('id', $id);
         $query = $this->db->get('pages');
-        return $query->result();
+        return $query->row();
+    }
+
+    /**
+     * Remove a page.
+     */
+    public function remove($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('pages');
     }
 
     /**
