@@ -1,11 +1,7 @@
 /*==== Containers ====*/
 
-html, body {
-	height: 80%;
-}
-
 #container {
-	height: 100%;
+	height: 80%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -1,7 +1,16 @@
 /*==== General elements ====*/
 
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
 #content {
-    background-color: #F0F0F0;
+    color: #000;
+    background-color: #f4f4ff;
 }
 
 .error {
@@ -24,4 +33,5 @@ button:hover, input[type="submit"]:hover {
 input[type="text"], input[type="password"], textarea {
     padding: 3px 5px;
     border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
 }

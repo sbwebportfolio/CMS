@@ -10,6 +10,7 @@
         <!-- Stylesheets -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/login.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
         <!-- Scripts -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

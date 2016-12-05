@@ -10,6 +10,7 @@
 		<!-- Stylesheets -->
 		<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -18,7 +19,7 @@
 	<body>
 		<div id="container">
 			<header>
-				<h3>Hello, user<h3>
+				<h3>Hello, user</h3>
 			</header>
 			<div id="content-wrapper">
 				<div id="menu">

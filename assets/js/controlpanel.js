@@ -15,6 +15,9 @@ $(document).ready(function() {
     $(window).bind('hashchange', menuFromHash);
 });
 
+/**
+ * Initialize the menu.
+ */
 function initializeMenu() {
     var $menu = $('#menu');
 
