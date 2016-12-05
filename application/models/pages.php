@@ -37,10 +37,11 @@ class Pages extends CI_Model
     {
         $data = [
             'title' => $title,
-            'content' => $content,
-            'created' => 'NOW()',
-            'updated' => 'NOW()'
+            'content' => $content
         ];
+
+        $this->db->set('created', 'NOW()', FALSE);
+        $this->db->set('updated', 'NOW()', FALSE);
 
         $this->db->insert('pages', $data);
     }
@@ -52,11 +53,12 @@ class Pages extends CI_Model
     {
         $data = [
             'title' => $title,
-            'content' => $content,
-            'updated' => 'NOW()'
+            'content' => $content
         ];
 
+        $this->db->set('updated', 'NOW()', FALSE);
+
         $this->db->where('id', $id);
-        $this->db->update('pages', $data);
+        return $this->db->update('pages', $data);
     }
 }

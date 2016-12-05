@@ -20,6 +20,11 @@ $(document).ready(function() {
     $(window).bind('hashchange', menuFromHash);
 });
 
+/**
+ * Load the correct menu from the url hash.
+ * 
+ * TODO: read extra info from hash.
+ */
 function menuFromHash() {
     var hash = window.location.hash.substr(1);
     if (hash)

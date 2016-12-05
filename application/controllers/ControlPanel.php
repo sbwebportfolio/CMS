@@ -56,6 +56,11 @@ class ControlPanel extends My_Controller
 
     private function show_remove()
     {
+        return $this->show_edit();
+    }
+
+    private function show_edit()
+    {
         $this->load->model('pages');
         return ['page' => $this->pages->get($this->input->get('page'))];
     }
