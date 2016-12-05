@@ -64,13 +64,18 @@ header > h3, footer > h3 {
 	background-color: gray;
 }
 
-div[menu] {
+[menu] {
 	cursor: pointer;
-	width: calc(95% - 20px);
+	width: calc(100% - 30px);
 	padding: 10px;
-	margin-left: 5%;
+	margin-left: 10px;
 }
 
-div[menu]:hover, div[menu].highlight {
+[menu]:hover, [menu].highlight {
 	background-color: #F0F0F0;
+}
+
+.menu-group-items {
+	width: calc(100% - 10px);
+	margin-left: 10px;
 }

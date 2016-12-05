@@ -25,8 +25,12 @@
 					<div menu="pages">Pages</div>
 					<div menu="posts">Posts</div>
 					<div menu="menus">Menus</div>
-					<div menu="users">Users</div>
-					<div menu="profile">My profile</div>
+					<div class="menu-group">
+						<div menu="users">Users</div>
+						<div class="menu-group-items">
+							<div menu="profile">My profile</div>
+						</div>
+					</div>
 				</div>
 				<div id="content">
 					Something something content
