@@ -29,6 +29,7 @@
 					<div class="menu-group">
 						<div menu="users">Users</div>
 						<div class="menu-group-items">
+							<div menu="add-user">Add user</div>
 							<div menu="profile">My profile</div>
 						</div>
 					</div>
