@@ -42,9 +42,9 @@ input[type="text"], input[type="password"] {
 #content {
 	flex: 1 100%;
 	order: 1;
-	padding: 10px;
+	padding: 20px;
 	min-width: 400px;
-	height: calc(100% - 20px);
+	height: calc(100% - 40px);
 	overflow: auto;
 }
 
