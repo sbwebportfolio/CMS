@@ -63,33 +63,16 @@ function menuFromHash() {
  * @param data The data to send with the request.
  */
 function showMenu(menuString, updateHash, data) {
-    // Get the previous and current menu item.
+    // Save the previous and current menu string.
     var prevMenuString = currentMenu;
     currentMenu = menuString;
 
-    var prevMenu = menuItems[prevMenuString];
-    var menu = menuItems[currentMenu];
-
-    // Un-highlight the previous menu, highlight the current one.
-    if (prevMenu)
-        prevMenu.removeClass(menuHighlightClass);
-    if (menu)
-        menu.addClass(menuHighlightClass);
-
     // Set the hash.
-    if (updateHash != false)
+    if (updateHash)
         history.pushState(null, null, '#' + currentMenu);
-
-    // Hide the previous group, show the current one.
-    var prevGroup = menuGroups[prevMenuString];
-    var group = menuGroups[currentMenu];
-
-    if (group != prevGroup) {
-        if (prevGroup)
-            prevGroup.slideUp();
-        if (group)
-            group.slideDown();
-    }
+    
+    // Update the menu visuals.
+    updateMenu(prevMenuString);
 
     // Get the menu content.
     $.ajax({
@@ -103,6 +86,31 @@ function showMenu(menuString, updateHash, data) {
             $('#content').html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
         }
     });
+}
+
+/**
+ * Update the menu highlight and groups.
+ */
+function updateMenu(prevMenuString) {
+    var prevMenu = menuItems[prevMenuString];
+    var menu = menuItems[currentMenu];
+
+    // Un-highlight the previous menu, highlight the current one.
+    if (prevMenu)
+        prevMenu.removeClass(menuHighlightClass);
+    if (menu)
+        menu.addClass(menuHighlightClass);
+
+    // Hide the previous group, show the current one.
+    var prevGroup = menuGroups[prevMenuString];
+    var group = menuGroups[currentMenu];
+
+    if (group != prevGroup) {
+        if (prevGroup)
+            prevGroup.slideUp();
+        if (group)
+            group.slideDown();
+    }
 }
 
 /**
