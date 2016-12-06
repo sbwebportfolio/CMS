@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to edit or delete posts. -->
-<script type="text/javascript" src="assets/js/posts.js"></script>
+<script type="text/javascript" src="assets/js/ControlPanel/posts.js"></script>
 
 <h3>Posts</h3>
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#remove').on('click', remove);
-    $('#cancel').on('click', function() { showMenu('pages'); });
+    $('#cancel').on('click', function() { showMenu('posts'); });
 });
 
 /**
@@ -9,9 +9,9 @@ $(document).ready(function() {
 function remove() {
     $.ajax({
         type: 'GET',
-        url: 'Page/remove?page=' + $(this).attr('page'),
+        url: 'ControlPanel/Post/remove?post=' + $(this).attr('post'),
         success: function(data) {
-            showMenu('pages');
+            showMenu('posts');
         }
     });
 }

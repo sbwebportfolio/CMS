@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to add a new user. -->
-<script type="text/javascript" src="assets/js/add-user.js"></script>
+<script type="text/javascript" src="assets/js/ControlPanel/add-user.js"></script>
 
 <h3>Add a user</h3>
 

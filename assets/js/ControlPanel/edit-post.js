@@ -5,7 +5,7 @@ $(document).ready(function() {
 function save() {
     // Get the data
     var data = {
-        id: $('#page-id').val(),
+        id: $('#post-id').val(),
         title: $('#title').val(),
         content: $('#editor').val() 
     };
@@ -13,7 +13,7 @@ function save() {
     // Post the request.
     $.ajax({
         type: 'POST',
-        url: 'Page/save',
+        url: 'ControlPanel/Post/save',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);

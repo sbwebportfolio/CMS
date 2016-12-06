@@ -38,7 +38,7 @@ function login(e) {
     // Do the request.
     $.ajax({
         type: 'POST',
-        url: 'User/login',
+        url: 'ControlPanel/User/login',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);

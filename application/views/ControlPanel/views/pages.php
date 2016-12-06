@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to edit or delete pages. -->
-<script type="text/javascript" src="assets/js/pages.js"></script>
+<script type="text/javascript" src="assets/js/ControlPanel/pages.js"></script>
 
 <h3>Pages</h3>
 

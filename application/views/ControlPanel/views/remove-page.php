@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to remove the page. -->
-<script type="text/javascript" src="assets/js/remove-page.js"></script>
+<script type="text/javascript" src="assets/js/ControlPanel/remove-page.js"></script>
 
 <h3>Are you sure you want to remove "<?= $page->title ?>"?</h3>
 <p>This action is permanent and cannot be undone.</p>

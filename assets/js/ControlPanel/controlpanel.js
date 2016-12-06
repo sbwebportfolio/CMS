@@ -94,7 +94,7 @@ function showMenu(menuString, updateHash, data) {
     // Get the menu content.
     $.ajax({
         type: 'GET',
-        url: 'ControlPanel/show?menu=' + currentMenu,
+        url: 'ControlPanel/ControlPanel/show?menu=' + currentMenu,
         data: data,
         success: function(data) {
             $('#content').html(data);
