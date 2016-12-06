@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         // Set the link actions.
         if ($this.hasClass('edit-page'))
-            $this.on('click', function() { showMenu('edit', false, data); });
+            $this.on('click', function() { showMenu('edit-page', false, data); });
         else if ($this.hasClass('remove-page'))
             $this.on('click', function() { showMenu('remove', false, data); });
     });

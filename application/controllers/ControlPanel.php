@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile', 'edit', 'remove', 'add-user'
+        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove', 'add-user'
     ];
 
     public function index()
@@ -27,7 +27,7 @@ class ControlPanel extends My_Controller
         if (in_array($menu, self::MENU_ITEMS))
         {
             // Get the right method, and if it exists call it to load the data.
-            $function = 'show_' . $menu;
+            $function = 'show_' . str_replace('-', '_', $menu);
             $data = method_exists($this, $function) ? $this->$function() : [];
 
             $this->load->view('ControlPanel/views/' . $menu, $data);
@@ -59,7 +59,7 @@ class ControlPanel extends My_Controller
         return $this->show_edit();
     }
 
-    private function show_edit()
+    private function show_edit_page()
     {
         $this->load->model('pages');
         return ['page' => $this->pages->get($this->input->get('page'))];
