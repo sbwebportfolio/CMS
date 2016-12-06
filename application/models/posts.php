@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Posts extends CI_Model
 {
     /**
-     * Get all posts. TODO: categories.
+     * Get all posts.
      */
     public function all()
     {
@@ -12,7 +12,7 @@ class Posts extends CI_Model
     }
 
     /**
-     * Get a post by its id. TODO: categories.
+     * Get a post by its id.
      */
     public function get($id)
     {

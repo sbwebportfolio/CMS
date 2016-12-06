@@ -10,16 +10,19 @@
     <tr>
         <th>Title</th>
         <th>Actions</th>
+        <th>Categories</th>
         <th>Last updated</th>
         <th>Created</th>
     </tr>
     <?php
         foreach ($posts as $post)
         {
+            $categories = implode(', ', $post->categories);
             echo(
             "<tr>
                 <td>$post->title</td>
                 <td><span post='$post->id' class='link edit-post'>edit</span> | <span post='$post->id' class='link remove-post'>remove</span></td>
+                <td>$categories</td>
                 <td>$post->updated</td>
                 <td>$post->created</td>
             </tr>"

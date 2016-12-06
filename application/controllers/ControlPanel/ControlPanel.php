@@ -68,13 +68,24 @@ class ControlPanel extends My_Controller
     public function show_posts()
     {
         $this->load->model('posts');
-        return ['posts' => $this->posts->all()];
+        $this->load->model('categories');
+
+        $posts = $this->posts->all();
+        foreach ($posts as $post)
+            $post->categories = $this->categories->forPost($post->id);
+
+        return ['posts' => $posts];
     }
 
     public function show_edit_post()
     {
         $this->load->model('posts');
-        return ['post' => $this->posts->get($this->input->get('post'))];
+        $this->load->model('categories');
+
+        $post = $this->posts->get($this->input->get('post'));
+        $post->categories = $this->categories->forPost($post->id);
+
+        return ['post' => $post];
     }
 
     private function show_remove_post()

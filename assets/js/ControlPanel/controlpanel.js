@@ -68,7 +68,7 @@ function showMenu(menuString, updateHash, data) {
     currentMenu = menuString;
 
     // Set the hash.
-    if (updateHash)
+    if (updateHash != false)
         history.pushState(null, null, '#' + currentMenu);
     
     // Update the menu visuals.

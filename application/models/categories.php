@@ -34,4 +34,22 @@ class Categories extends CI_Model
 
         $this->db->insert('category_names', $data);
     }
+
+    /**
+     * Get all categories for a specific post.
+     */
+    public function forPost($postId)
+    {
+        $this->db->select('category_names.name');
+        $this->db->from('categories');
+        $this->db->join('category_names', 'categories.category_id = category_names.id', 'INNER');
+        $this->db->where('post_id', $postId);
+        $rows = $this->db->get()->result();
+
+        // Put all category names in an array.
+        $result = [];
+        foreach ($rows as $row)
+            $result[] = $row->name;
+        return $result;
+    }
 }
