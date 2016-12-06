@@ -3,7 +3,7 @@
 <!-- Script to save pages. -->
 <script type="text/javascript" src="assets/js/edit-page.js"></script>
 
-<h3>Edit</h3>
+<h3>Edit page</h3>
 
 <input id="page-id" type="hidden" value="<?= $page->id ?>">
 <p><input id="title" type="text" value="<?= $page->title ?>"></p>

@@ -1,37 +1,40 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Model
+class Posts extends CI_Model
 {
     /**
-     * Get all pages.
+     * Get all posts. TODO: categories.
      */
     public function all()
     {
-        return $this->db->get('pages')->result();
+        return $this->db->get('posts')->result();
     }
 
     /**
-     * Get a page by its id.
+     * Get a post by its id. TODO: categories.
      */
     public function get($id)
     {
         $this->db->where('id', $id);
-        $query = $this->db->get('pages');
+        $query = $this->db->get('posts');
         return $query->row();
     }
 
     /**
-     * Remove a page.
+     * Remove a post.
      */
     public function remove($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('pages');
+        $this->db->delete('posts');
+
+        $this->db->where('post_id', $id);
+        $this->db->delete('categories');
     }
 
     /**
-     * Create a new page.
+     * Create a new post.
      */
     public function create($title, $content)
     {
@@ -43,11 +46,11 @@ class Pages extends CI_Model
         $this->db->set('created', 'NOW()', FALSE);
         $this->db->set('updated', 'NOW()', FALSE);
 
-        $this->db->insert('pages', $data);
+        $this->db->insert('posts', $data);
     }
 
     /**
-    * Update an existing page.
+    * Update an existing post.
     */
     public function update($id, $title, $content)
     {
@@ -59,6 +62,6 @@ class Pages extends CI_Model
         $this->db->set('updated', 'NOW()', FALSE);
 
         $this->db->where('id', $id);
-        return $this->db->update('pages', $data);
+        return $this->db->update('posts', $data);
     }
 }

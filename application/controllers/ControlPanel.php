@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove', 'add-user'
+        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'edit-post', 'remove-post'
     ];
 
     public function index()
@@ -54,14 +54,31 @@ class ControlPanel extends My_Controller
         return ['user' => $this->ion_auth->user()->row()];
     }
 
-    private function show_remove()
+    private function show_remove_page()
     {
-        return $this->show_edit();
+        return $this->show_edit_page();
     }
 
     private function show_edit_page()
     {
         $this->load->model('pages');
         return ['page' => $this->pages->get($this->input->get('page'))];
+    }
+
+    public function show_posts()
+    {
+        $this->load->model('posts');
+        return ['posts' => $this->posts->all()];
+    }
+
+    public function show_edit_post()
+    {
+        $this->load->model('posts');
+        return ['post' => $this->posts->get($this->input->get('post'))];
+    }
+
+    private function show_remove_post()
+    {
+        return $this->show_edit_post();
     }
 }
