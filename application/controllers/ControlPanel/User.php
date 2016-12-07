@@ -122,17 +122,23 @@ class User extends My_Controller
     {
         $this->checkAjax();
         $this->checkLoggedInAjax();
+        $user = $this->ion_auth->user()->row();
 
+        // Get the data.
+        $oldPass = $this->input->post('oldPass');
         $pass = $this->input->post('pass');
 
         // Validate
         $passValid = $this->passwordValid($pass);
+        $oldPassCorrect = $this->ion_auth->hash_password_db($user->id, $oldPass);
 
-        if ($passValid !== TRUE)
+        if (!$oldPassCorrect)
+            echo json_encode(['error' => 'Your old password is incorrect.']);
+        else if ($passValid !== TRUE)
             echo json_encode(['error' => $passValid]);
         // Change the password.
         else
-            $this->showResult($this->ion_auth->update($this->ion_auth->user()->row()->id, ['password' => $pass]));
+            $this->showResult($this->ion_auth->update($user->id, ['password' => $pass]));
     }
 
     /*==== Helper functions. ====*/

@@ -30,11 +30,15 @@
 <h4>Change your password</h4>
 <form id="change-password-form">
     <p>
+        <label for="old-pass">Old password</label><br>
+        <input id="old-pass" name="old-pass" type="password">
+    </p>
+    <p>
         <label for="pass">New password</label><br>
         <input id="pass" name="pass" type="password">
     </p>
     <p>
-        <label for="pass2">Repeat password</label><br>
+        <label for="pass2">Repeat new password</label><br>
         <input id="pass2" name="pass2" type="password">
     </p>
     <p>

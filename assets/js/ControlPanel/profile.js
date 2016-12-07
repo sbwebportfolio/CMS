@@ -39,6 +39,7 @@ function changePass(e) {
     $('#pass-info').empty();
 
     // Check if the passwords match.
+    var oldPass = $('#old-pass').val();
     var pass = $('#pass').val();
     var pass2 = $('#pass2').val();
     if (pass != pass2) {
@@ -49,7 +50,8 @@ function changePass(e) {
     // Get the user data.
     var data = {
         email: $('#email').val(),
-        pass: pass
+        pass: pass,
+        oldPass: oldPass
     };
 
     // Do the request.
