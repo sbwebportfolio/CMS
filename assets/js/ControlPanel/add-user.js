@@ -33,6 +33,9 @@ function addUser(e) {
     });
 }
 
+/**
+ * Show the result of adding a user.
+ */
 function showResult(data) {
     var json = $.parseJSON(data);
 
@@ -43,6 +46,7 @@ function showResult(data) {
         return;
     }
 
+    // Empty the password inputs, show the message.
     $('#pass').val('');
     $('#pass2').val('');
     $('#info').text('The user was added successfully.');

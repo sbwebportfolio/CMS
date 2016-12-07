@@ -4,10 +4,9 @@ $(document).ready(function() {
         var $this = $(this);
         var data = {id: $this.attr('page')};
 
-        // Set the link actions.
-        if ($this.hasClass('edit-page'))
-            $this.on('click', function() { showMenu('edit-page', false, data); });
-        else if ($this.hasClass('remove-page'))
-            $this.on('click', function() { showMenu('remove-page', false, data); });
+        // Set the link action.
+        $this.on('click', function() {
+            showMenu($(this).attr('action'), false, data);
+        });
     });
 });

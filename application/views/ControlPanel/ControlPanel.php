@@ -29,6 +29,7 @@
 							<div menu="new-page">New page</div>
 						</div>
 					</div>
+					<div menu="media">Media</div>
 					<div menu="menus">Menus</div>
 					<div class="menu-group">
 						<div menu="users">Users</div>
