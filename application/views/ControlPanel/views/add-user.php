@@ -9,18 +9,18 @@
 <form id="user-add-form">
     <p>
         <label for="email">E-mail address</label><br>
-        <input id="email" name="email" type="text" required>
+        <input id="email" type="text">
     </p>
     <p>
         <label for="pass">Password</label><br>
-        <input id="pass" name="pass" type="password" required>
+        <input id="pass" type="password">
     </p>
     <p>
         <label for="pass2">Repeat password</label><br>
-        <input id="pass2" name="pass2" type="password" required>
+        <input id="pass2" type="password">
     </p>
     <p>
         <button>Add user</button>
     </p>
 </form>
-<p id="info" class="error"></p>
+<p id="info"></p>

@@ -10,15 +10,15 @@
 <form id="update-user-form">
     <p>
         <label for="first-name">First name</label><br>
-        <input id="first-name" name="first-name" type="text" value="<?= $user->first_name ?>">
+        <input id="first-name" type="text" value="<?= $user->first_name ?>">
     </p>
     <p>
         <label for="last-name">Last name</label><br>
-        <input id="last-name" name="last-name" type="text" value="<?= $user->last_name ?>">
+        <input id="last-name" type="text" value="<?= $user->last_name ?>">
     </p>
     <p>
         <label for="email">E-mail address</label><br>
-        <input id="email" name="email" type="text" required value="<?= $user->email ?>">
+        <input id="email" type="text" required value="<?= $user->email ?>">
     </p>
     <p>
         <button>Save</button>
@@ -31,15 +31,15 @@
 <form id="change-password-form">
     <p>
         <label for="old-pass">Old password</label><br>
-        <input id="old-pass" name="old-pass" type="password">
+        <input id="old-pass" type="password">
     </p>
     <p>
         <label for="pass">New password</label><br>
-        <input id="pass" name="pass" type="password">
+        <input id="pass" type="password">
     </p>
     <p>
         <label for="pass2">Repeat new password</label><br>
-        <input id="pass2" name="pass2" type="password">
+        <input id="pass2" type="password">
     </p>
     <p>
         <button>Change password</button>

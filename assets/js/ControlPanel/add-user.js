@@ -8,6 +8,7 @@ $(document).ready(function() {
  */
 function addUser(e) {
     e.preventDefault();
+    $('#info').empty();
 
     // Check if the passwords match.
     var pass = $('#pass').val();
@@ -28,13 +29,21 @@ function addUser(e) {
         type: 'POST',
         url: 'ControlPanel/User/register',
         data: data,
-        success: function(data) {
-            var json = $.parseJSON(data);
-
-            if (json.error)
-                $('#info').html(json.error);
-            else
-                refreshContent();
-        }
+        success: showResult
     });
+}
+
+function showResult(data) {
+    var json = $.parseJSON(data);
+
+    // Check for errors.
+    $('#info').toggleClass('error', json.error);
+    if (json.error) {
+        $('#info').html(json.error);
+        return;
+    }
+
+    $('#pass').val('');
+    $('#pass2').val('');
+    $('#info').text('The user was added successfully.');
 }
