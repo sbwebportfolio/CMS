@@ -23,7 +23,12 @@
 			</header>
 			<div id="content-wrapper">
 				<div id="menu">
-					<div menu="pages">Pages</div>
+					<div class="menu-group">
+						<div menu="pages">Pages</div>
+						<div class="menu-group-items">
+							<div menu="new-page">New page</div>
+						</div>
+					</div>
 					<div menu="posts">Posts</div>
 					<div menu="menus">Menus</div>
 					<div class="menu-group">

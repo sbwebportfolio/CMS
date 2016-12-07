@@ -61,4 +61,9 @@ class Pages extends CI_Model
         $this->db->where('id', $id);
         return $this->db->update('pages', $data);
     }
+
+    public function newPage()
+    {
+        return (object)['id' => -1, 'title' => 'New page', 'content' => ''];
+    }
 }

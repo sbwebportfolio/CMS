@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'edit-post', 'remove-post'
+        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'edit-post', 'remove-post', 'new-page'
     ];
 
     public function index()
@@ -26,11 +26,12 @@ class ControlPanel extends My_Controller
         $menu = $this->input->get('menu');
         if (in_array($menu, self::MENU_ITEMS))
         {
-            // Get the right method, and if it exists call it to load the data.
+            // If a custom method exists, call that. Otherwise simply load the view.
             $function = 'show_' . str_replace('-', '_', $menu);
-            $data = method_exists($this, $function) ? $this->$function() : [];
-
-            $this->load->view('ControlPanel/views/' . $menu, $data);
+            if (method_exists($this, $function))
+                $this->$function();
+            else
+                $this->load->view('ControlPanel/views/' . $menu);
         }
         else
             show_404();
@@ -41,28 +42,25 @@ class ControlPanel extends My_Controller
     private function show_pages()
     {
         $this->load->model('pages');
-        return ['pages' => $this->pages->all()];
+        $this->load->view('ControlPanel/views/pages', ['pages' => $this->pages->all()]);
     }
 
-    private function show_users()
+    private function show_new_page()
     {
-        return ['users' => $this->ion_auth->users()->result()];
-    }
-
-    private function show_profile()
-    {
-        return ['user' => $this->ion_auth->user()->row()];
+        $this->load->model('pages');
+        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->newPage()]);
     }
 
     private function show_remove_page()
     {
-        return $this->show_edit_page();
+        $this->load->model('pages');
+        $this->load->view('ControlPanel/views/remove-page', ['page' => $this->pages->get($this->input->get('page'))]);
     }
 
     private function show_edit_page()
     {
         $this->load->model('pages');
-        return ['page' => $this->pages->get($this->input->get('page'))];
+        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->get($this->input->get('page'))]);
     }
 
     public function show_posts()
@@ -74,7 +72,7 @@ class ControlPanel extends My_Controller
         foreach ($posts as $post)
             $post->categories = $this->categories->forPost($post->id);
 
-        return ['posts' => $posts];
+        $this->load->view('ControlPanel/views/posts', ['posts' => $posts]);
     }
 
     public function show_edit_post()
@@ -85,11 +83,27 @@ class ControlPanel extends My_Controller
         $post = $this->posts->get($this->input->get('post'));
         $post->categories = $this->categories->forPost($post->id);
 
-        return ['post' => $post];
+        $this->load->view('ControlPanel/views/edit-post', ['post' => $post]);
     }
 
     private function show_remove_post()
     {
-        return $this->show_edit_post();
+        $this->load->model('posts');
+        $this->load->model('categories');
+
+        $post = $this->posts->get($this->input->get('post'));
+        $post->categories = $this->categories->forPost($post->id);
+
+        $this->load->view('ControlPanel/views/remove-post', ['post' => $post]);
+    }
+
+    private function show_users()
+    {
+        $this->load->view('ControlPanel/views/users', ['users' => $this->ion_auth->users()->result()]);
+    }
+
+    private function show_profile()
+    {
+        $this->load->view('ControlPanel/views/profile', ['user' => $this->ion_auth->user()->row()]);
     }
 }
