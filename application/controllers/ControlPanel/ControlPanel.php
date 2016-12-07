@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'edit-post', 'remove-post', 'new-page'
+        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-content', 'add-user', 'edit-post', 'new-page'
     ];
 
     public function index()
@@ -51,16 +51,10 @@ class ControlPanel extends My_Controller
         $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->newPage()]);
     }
 
-    private function show_remove_page()
-    {
-        $this->load->model('pages');
-        $this->load->view('ControlPanel/views/remove-page', ['page' => $this->pages->get($this->input->get('page'))]);
-    }
-
     private function show_edit_page()
     {
         $this->load->model('pages');
-        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->get($this->input->get('page'))]);
+        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->get($this->input->get('id'))]);
     }
 
     public function show_posts()
@@ -80,7 +74,7 @@ class ControlPanel extends My_Controller
         $this->load->model('posts');
         $this->load->model('categories');
 
-        $post = $this->posts->get($this->input->get('post'));
+        $post = $this->posts->get($this->input->get('id'));
         $post->categories = $this->categories->forPost($post->id);
 
         $this->load->view('ControlPanel/views/edit-post', ['post' => $post]);
@@ -105,5 +99,28 @@ class ControlPanel extends My_Controller
     private function show_profile()
     {
         $this->load->view('ControlPanel/views/profile', ['user' => $this->ion_auth->user()->row()]);
+    }
+
+    private function show_remove_content()
+    {
+        $type = $this->input->get('type');
+        $id = $this->input->get('id');
+
+        // Load the content based on the type.
+        if ($type === 'page')
+        {
+            $this->load->model('pages');
+            $content = $this->pages->get($id);
+        }
+        else if ($type === 'post')
+        {
+            $this->load->model('posts');
+            $content = $this->posts->get($id);
+        }
+        else
+            show_404();
+
+        $content->type = $type;
+        $this->load->view('ControlPanel/views/remove-content', ['content' => $content]);
     }
 }

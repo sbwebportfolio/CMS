@@ -72,7 +72,7 @@ function showMenu(menuString, updateHash, data) {
         history.pushState(null, null, '#' + currentMenu);
     
     // Update the menu visuals.
-    updateMenu(prevMenuString);
+    updateMenu(prevMenuString, updateHash != false);
 
     // Get the menu content.
     $.ajax({
@@ -91,7 +91,7 @@ function showMenu(menuString, updateHash, data) {
 /**
  * Update the menu highlight and groups.
  */
-function updateMenu(prevMenuString) {
+function updateMenu(prevMenuString, updateGroups) {
     var prevMenu = menuItems[prevMenuString];
     var menu = menuItems[currentMenu];
 
@@ -101,15 +101,18 @@ function updateMenu(prevMenuString) {
     if (menu)
         menu.addClass(menuHighlightClass);
 
-    // Hide the previous group, show the current one.
-    var prevGroup = menuGroups[prevMenuString];
-    var group = menuGroups[currentMenu];
+    if (updateGroups) {
+        // Get the previous and current menu group.
+        var prevGroup = menuGroups[prevMenuString];
+        var group = menuGroups[currentMenu];
 
-    if (group != prevGroup) {
-        if (prevGroup)
-            prevGroup.slideUp();
-        if (group)
-            group.slideDown();
+        // Hide the previous group, show the current one.
+        if (group != prevGroup) {
+            if (prevGroup)
+                prevGroup.slideUp();
+            if (group)
+                group.slideDown();
+        }
     }
 }
 

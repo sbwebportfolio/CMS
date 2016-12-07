@@ -16,7 +16,7 @@ class Page extends My_Controller
 
     public function remove()
     {
-        $this->pages->remove($this->input->get('page'));
+        $this->pages->remove($this->input->get('id'));
     }
 
     public function save()

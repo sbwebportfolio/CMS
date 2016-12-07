@@ -16,7 +16,7 @@ class Post extends My_Controller
 
     public function remove()
     {
-        $this->posts->remove($this->input->get('post'));
+        $this->posts->remove($this->input->get('id'));
     }
 
     public function save()
