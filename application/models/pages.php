@@ -8,7 +8,10 @@ class Pages extends CI_Model
      */
     public function all()
     {
-        return $this->db->get('pages')->result();
+        $pages = $this->db->get('pages')->result();
+        foreach ($pages as $page)
+            $this->setCategories($page);
+        return $pages;
     }
 
     /**
@@ -16,9 +19,11 @@ class Pages extends CI_Model
      */
     public function get($id)
     {
+        $this->load->model('categories');
         $this->db->where('id', $id);
-        $query = $this->db->get('pages');
-        return $query->row();
+        $page = $this->db->get('pages')->row();
+        $this->setCategories($page);
+        return $page;
     }
 
     /**
@@ -28,6 +33,9 @@ class Pages extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('pages');
+
+        $this->db->where('page_id', $id);
+        $this->db->delete('categories');
     }
 
     /**
@@ -62,8 +70,26 @@ class Pages extends CI_Model
         return $this->db->update('pages', $data);
     }
 
+    /**
+     * Get a new (empty) page.
+     */
     public function newPage()
     {
-        return (object)['id' => -1, 'title' => 'New page', 'content' => ''];
+        return (object)['id' => -1, 'title' => 'New page', 'content' => '', 'categories' => []];
+    }
+
+    private function setCategories($page)
+    {
+        // Get all category names for a page.
+        $this->db->select('category_names.name');
+        $this->db->from('categories');
+        $this->db->join('category_names', 'categories.category_id = category_names.id', 'INNER');
+        $this->db->where('page_id', $page->id);
+        $rows = $this->db->get()->result();
+
+        // Put all category names in an array in the page.
+        $page->categories = [];
+        foreach ($rows as $row)
+            $page->categories[] = $row->name;
     }
 }

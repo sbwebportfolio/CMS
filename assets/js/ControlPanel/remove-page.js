@@ -7,14 +7,11 @@ $(document).ready(function() {
  * Remove a page.
  */
 function remove() {
-    var id = $('#content-id').val();
-    var type = $('#content-type').val();
-
     $.ajax({
         type: 'GET',
-        url: 'ControlPanel/' + type + '/remove?id=' + id,
+        url: 'ControlPanel/Page/remove?id=' + $('#page-id').val(),
         success: function(data) {
-            refreshContent();
+            showMenu('pages');
         }
     });
 }

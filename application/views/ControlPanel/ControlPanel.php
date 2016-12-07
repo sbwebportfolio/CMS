@@ -19,7 +19,7 @@
 	<body>
 		<div id="container">
 			<header>
-				<h3>Hello, user</h3>
+				<h3>Hello, <?= $user->first_name ? $user->first_name : $user->email ?></h3>
 			</header>
 			<div id="content-wrapper">
 				<div id="menu">
@@ -29,7 +29,6 @@
 							<div menu="new-page">New page</div>
 						</div>
 					</div>
-					<div menu="posts">Posts</div>
 					<div menu="menus">Menus</div>
 					<div class="menu-group">
 						<div menu="users">Users</div>

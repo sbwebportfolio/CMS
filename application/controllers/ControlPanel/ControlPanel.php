@@ -4,16 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
     const MENU_ITEMS = [
-        'pages', 'posts', 'menus', 'users', 'profile', 'edit-page', 'remove-content', 'add-user', 'edit-post', 'new-page'
+        'pages', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'new-page'
     ];
 
     public function index()
     {
-        // Check if the user is logged in. 
-        if ($this->ion_auth->logged_in())
-            $this->load->view('ControlPanel/ControlPanel');
-        else
+        // If the user is not logged in, load the login view.
+        if (!$this->ion_auth->logged_in())
+        {
             $this->load->view('ControlPanel/Login');
+            exit();
+        }
+
+        // Load the control panel.
+        $data = [
+            'user' => $this->ion_auth->user()->row()
+        ];
+        $this->load->view('ControlPanel/ControlPanel', $data);
     }
 
     public function show()
@@ -57,38 +64,10 @@ class ControlPanel extends My_Controller
         $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->get($this->input->get('id'))]);
     }
 
-    public function show_posts()
+    private function show_remove_page()
     {
-        $this->load->model('posts');
-        $this->load->model('categories');
-
-        $posts = $this->posts->all();
-        foreach ($posts as $post)
-            $post->categories = $this->categories->forPost($post->id);
-
-        $this->load->view('ControlPanel/views/posts', ['posts' => $posts]);
-    }
-
-    public function show_edit_post()
-    {
-        $this->load->model('posts');
-        $this->load->model('categories');
-
-        $post = $this->posts->get($this->input->get('id'));
-        $post->categories = $this->categories->forPost($post->id);
-
-        $this->load->view('ControlPanel/views/edit-post', ['post' => $post]);
-    }
-
-    private function show_remove_post()
-    {
-        $this->load->model('posts');
-        $this->load->model('categories');
-
-        $post = $this->posts->get($this->input->get('post'));
-        $post->categories = $this->categories->forPost($post->id);
-
-        $this->load->view('ControlPanel/views/remove-post', ['post' => $post]);
+        $this->load->model('pages');
+        $this->load->view('ControlPanel/views/remove-page', ['page' => $this->pages->get($this->input->get('id'))]);
     }
 
     private function show_users()
@@ -99,28 +78,5 @@ class ControlPanel extends My_Controller
     private function show_profile()
     {
         $this->load->view('ControlPanel/views/profile', ['user' => $this->ion_auth->user()->row()]);
-    }
-
-    private function show_remove_content()
-    {
-        $type = $this->input->get('type');
-        $id = $this->input->get('id');
-
-        // Load the content based on the type.
-        if ($type === 'page')
-        {
-            $this->load->model('pages');
-            $content = $this->pages->get($id);
-        }
-        else if ($type === 'post')
-        {
-            $this->load->model('posts');
-            $content = $this->posts->get($id);
-        }
-        else
-            show_404();
-
-        $content->type = $type;
-        $this->load->view('ControlPanel/views/remove-content', ['content' => $content]);
     }
 }
