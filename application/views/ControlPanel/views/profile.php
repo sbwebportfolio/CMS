@@ -24,7 +24,7 @@
         <button>Save</button>
     </p>
 </form>
-<p id="update-info" class="error"></p>
+<p id="update-info"></p>
 
 <!-- Change password form. -->
 <h4>Change your password</h4>
@@ -45,4 +45,4 @@
         <button>Change password</button>
     </p>
 </form>
-<p id="pass-info" class="error"></p>
+<p id="pass-info"></p>

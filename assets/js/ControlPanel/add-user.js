@@ -40,14 +40,10 @@ function showResult(data) {
     var json = $.parseJSON(data);
 
     // Check for errors.
-    $('#info').toggleClass('error', json.error);
-    if (json.error) {
-        $('#info').html(json.error);
-        return;
-    }
+    $('#info').toggleClass('error', json.error != null);
+    $('#info').text(json.error ? json.error : 'The user was added successfully.');
 
     // Empty the password inputs, show the message.
     $('#pass').val('');
     $('#pass2').val('');
-    $('#info').text('The user was added successfully.');
 }

@@ -25,8 +25,9 @@ function updateUser(e) {
         success: function(data) {
             var json = $.parseJSON(data);
 
-            if (json.error)
-                $('#update-info').html(json.error);
+            // Check for errors.
+            $('#update-info').toggleClass('error', json.error != null);
+            $('#update-info').text(json.error ? json.error : 'Your information is saved.');
         }
     });
 }
@@ -62,9 +63,13 @@ function changePass(e) {
         success: function(data) {
             var json = $.parseJSON(data);
 
-            if (json.error)
-                $('#pass-info').html(json.error);
-            else {
+            // Check for errors.
+            $('#pass-info').toggleClass('error', json.error != null);
+            $('#pass-info').text(json.error ? json.error : 'Your password is changed.');
+
+            // Empty the password inputs on success.
+            if (!json.error) {
+                $('#old-pass').val('');
                 $('#pass').val('');
                 $('#pass2').val('');
             }
