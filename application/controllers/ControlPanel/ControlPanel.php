@@ -54,7 +54,14 @@ class ControlPanel extends My_Controller
     private function show_new_page()
     {
         $this->load->model('pages');
-        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->newPage()]);
+        $this->load->model('categories');
+
+        $data = [
+            'page' => $this->pages->newPage(),
+            'categories' => $this->categories->all()
+        ];
+
+        $this->load->view('ControlPanel/views/edit-page', $data);
     }
 
     private function show_edit_page()

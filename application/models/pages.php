@@ -75,9 +75,21 @@ class Pages extends CI_Model
      */
     public function newPage()
     {
-        return (object)['id' => -1, 'title' => 'New page', 'content' => '', 'categories' => []];
+        $now = $this->sqlNow();
+
+        return (object)[
+            'id' => -1,
+            'title' => 'New page',
+            'content' => '',
+            'categories' => [],
+            'created' => $now,
+            'updated' => $now,
+        ];
     }
 
+    /**
+     * Set the categories for a page.
+     */
     private function setCategories($page)
     {
         // Get all category names for a page.
@@ -91,5 +103,14 @@ class Pages extends CI_Model
         $page->categories = [];
         foreach ($rows as $row)
             $page->categories[] = $row->name;
+    }
+
+    /**
+     * Get the current date and time from the database.
+     */
+    private function sqlNow()
+    {
+        $this->db->select('NOW()');
+        return $this->db->get()->row_array()['NOW()'];
     }
 }

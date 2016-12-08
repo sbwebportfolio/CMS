@@ -7,18 +7,21 @@
 
 <input id="page-id" type="hidden" value="<?= $page->id ?>">
 <div class="row">
-    <div class="col">
-        <p><input id="title" type="text" value="<?= $page->title ?>"></p>
-        <p><textarea id="editor" rows="10" cols="50"><?= $page->content ?></textarea></p>
-        <p><button id="save">Save</button></p>
+    <!-- Editor -->
+    <div class="col wide">
+        <p><input id="title" class="full-width" type="text" value="<?= $page->title ?>"></p>
+        <p><textarea id="editor" class="full-width"><?= $page->content ?></textarea></p>
     </div>
     <div class="col big-margin">
+        <!-- About this page -->
         <div class="box">
             <p class="bold">About this page</p>
             <hr>
             <p>Created on: <?= $page->created ?></p>
             <p>Last updated on: <?= $page->updated ?></p>
+            <p><button id="save">Save</button></p>
         </div>
+        <!-- Page attributes -->
         <div class="box">
             <p class="bold">Page attributes</p>
             <hr>
