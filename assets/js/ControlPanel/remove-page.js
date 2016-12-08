@@ -9,7 +9,7 @@ $(document).ready(function() {
 function remove() {
     $.ajax({
         type: 'GET',
-        url: 'Page/remove?id=' + $('#page-id').val(),
+        url: 'ControlPanel/Page/remove?id=' + $('#page-id').val(),
         success: function(data) {
             showMenu('pages');
         }

@@ -20,7 +20,7 @@ function updateUser(e) {
     // Do the request.
     $.ajax({
         type: 'POST',
-        url: 'User/update',
+        url: 'ControlPanel/User/update',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);
@@ -58,7 +58,7 @@ function changePass(e) {
     // Do the request.
     $.ajax({
         type: 'POST',
-        url: 'User/changePassword',
+        url: 'ControlPanel/User/changePassword',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);

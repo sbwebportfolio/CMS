@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('#recover-button').on('click', showRecoverForm);
     $('#back-button').on('click', showLoginForm);
     $("#login-form").on('submit', login);
+    $("#recover-form").on('submit', recover);
 });
 
 /**
@@ -38,7 +39,7 @@ function login(e) {
     // Do the request.
     $.ajax({
         type: 'POST',
-        url: 'User/login',
+        url: 'ControlPanel/User/login',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);
@@ -49,4 +50,11 @@ function login(e) {
                 location.reload(true);
         }
     });
+}
+
+/**
+ * Start the password recovery procedure.
+ */
+function recover(e) {
+    e.preventDefault();
 }

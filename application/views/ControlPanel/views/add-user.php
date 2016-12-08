@@ -20,7 +20,7 @@
         <input id="pass2" type="password">
     </p>
     <p>
-        <button>Add user</button>
+        <button class="blue">Add user</button>
     </p>
 </form>
 <p id="info"></p>

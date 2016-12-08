@@ -35,7 +35,7 @@
                         <label for="remember">Remember me</label>
                     </p>
                     <p>
-                        <button id="login-submit">Log in</button>
+                        <button class="blue">Log in</button>
                         <button type="button" id="recover-button">Forgot password?</button>
                     </p>
                 </form>
@@ -48,7 +48,7 @@
                     </p>
                     <p>
                         <button type="button" id="back-button">Go back</button>
-                        <button type="button" id="recover-submit">Send recovery email</button>
+                        <button class="blue">Send recovery email</button>
                     </p>
                 </form>
                 <!-- Information -->

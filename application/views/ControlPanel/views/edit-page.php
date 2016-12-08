@@ -19,7 +19,7 @@
             <hr>
             <p>Created on: <?= $page->created ?></p>
             <p>Last updated on: <?= $page->updated ?></p>
-            <p><button id="save">Save</button></p>
+            <p><button id="save" class="blue">Save</button></p>
         </div>
         <!-- Page attributes -->
         <div class="box">

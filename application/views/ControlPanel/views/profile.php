@@ -21,7 +21,7 @@
         <input id="email" type="text" required value="<?= $user->email ?>">
     </p>
     <p>
-        <button>Save</button>
+        <button class="blue">Save</button>
     </p>
 </form>
 <p id="update-info"></p>
@@ -42,7 +42,7 @@
         <input id="pass2" type="password">
     </p>
     <p>
-        <button>Change password</button>
+        <button class="blue">Change password</button>
     </p>
 </form>
 <p id="pass-info"></p>
