@@ -15,13 +15,53 @@ table th {
     background-color: lightgray;
 }
 
+table td {
+	background-color: #fff;
+}
+
 input[type="text"], input[type="password"] {
 	width: 250px;
 }
 
+hr {
+	border-color: lightgray;
+}
+
+/*==== Classes ====*/
+
 .link {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.col {
+	flex: 1 auto auto;
+}
+
+.col.wide {
+	flex-basis: 500px;
+}
+
+.big-margin {
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
+.box {
+	padding: 0 10px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid lightgray;
+	width: 100%;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 /*==== Containers ====*/
@@ -34,8 +74,6 @@ input[type="text"], input[type="password"] {
 }
 
 #content-wrapper {
-	display: flex;
-	flex-flow: row;
 	height: calc(100% - 80px);
 }
 

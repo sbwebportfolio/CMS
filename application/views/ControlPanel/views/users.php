@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<h3>Users</h3>
+<h2>Users</h2>
 
 <!-- Users table. -->
 <table id="users-table">
@@ -14,14 +14,14 @@
         foreach ($users as $user)
         {
             $created = date('Y-m-d', $user->created_on);
-            echo(
-            "<tr>
+            echo("
+            <tr>
                 <td>$user->first_name</td>
                 <td>$user->last_name</td>
                 <td>$user->email</td>
                 <td>$created</td>
-            </tr>"
-            );
+            </tr>
+            ");
         }
     ?>
 </table>

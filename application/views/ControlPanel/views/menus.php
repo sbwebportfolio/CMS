@@ -1,3 +1,3 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<h3>Menus</h3>
+<h2>Menus</h2>

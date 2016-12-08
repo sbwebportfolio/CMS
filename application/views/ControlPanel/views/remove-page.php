@@ -3,7 +3,7 @@
 <!-- Script to remove the page. -->
 <script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/remove-page.js"></script>
 
-<h3>Are you sure you want to remove "<?= $page->title ?>"?</h3>
+<h2>Are you sure you want to remove "<?= $page->title ?>"?</h2>
 <p>This action is permanent and cannot be undone.</p>
 <p>
     <input id="page-id" type="hidden" value="<?= $page->id ?>">

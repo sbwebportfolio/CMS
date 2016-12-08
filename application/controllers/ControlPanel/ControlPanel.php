@@ -60,7 +60,14 @@ class ControlPanel extends My_Controller
     private function show_edit_page()
     {
         $this->load->model('pages');
-        $this->load->view('ControlPanel/views/edit-page', ['page' => $this->pages->get($this->input->get('id'))]);
+        $this->load->model('categories');
+
+        $data = [
+            'page' => $this->pages->get($this->input->get('id')),
+            'categories' => $this->categories->all()
+        ];
+
+        $this->load->view('ControlPanel/views/edit-page', $data);
     }
 
     private function show_remove_page()

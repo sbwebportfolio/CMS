@@ -3,7 +3,7 @@
 <!-- Script to edit or delete pages. -->
 <script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/pages.js"></script>
 
-<h3>Pages</h3>
+<h2>Pages</h2>
 
 <!-- Pages table. -->
 <table id="pages-table">
@@ -18,15 +18,15 @@
         foreach ($pages as $page)
         {
             $categories = implode(', ', $page->categories);
-            echo(
-            "<tr>
+            echo("
+            <tr>
                 <td>$page->title</td>
                 <td><span page='$page->id' class='link' action='edit-page'>edit</span> | <span page='$page->id' class='link' action='remove-page'>remove</span></td>
                 <td>$categories</td>
                 <td>$page->updated</td>
                 <td>$page->created</td>
-            </tr>"
-            );
+            </tr>
+            ");
         }
     ?>
 </table>

@@ -3,7 +3,7 @@
 <!-- Script to add a new user. -->
 <script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/add-user.js"></script>
 
-<h3>Add a user</h3>
+<h2>Add a user</h2>
 
 <!-- New user form. -->
 <form id="user-add-form">

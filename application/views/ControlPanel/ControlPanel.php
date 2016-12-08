@@ -21,7 +21,7 @@
 			<header>
 				<h3>Hello, <?= $user->first_name ? $user->first_name : $user->email ?></h3>
 			</header>
-			<div id="content-wrapper">
+			<div id="content-wrapper" class="row">
 				<div id="menu">
 					<div class="menu-group">
 						<div menu="pages">Pages</div>
