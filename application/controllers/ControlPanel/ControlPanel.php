@@ -11,16 +11,15 @@ class ControlPanel extends My_Controller
     {
         // If the user is not logged in, load the login view.
         if (!$this->ion_auth->logged_in())
-        {
             $this->load->view('ControlPanel/Login');
-            exit();
+        else
+        {
+            // Load the control panel.
+            $data = [
+                'user' => $this->ion_auth->user()->row()
+            ];
+            $this->load->view('ControlPanel/ControlPanel', $data);
         }
-
-        // Load the control panel.
-        $data = [
-            'user' => $this->ion_auth->user()->row()
-        ];
-        $this->load->view('ControlPanel/ControlPanel', $data);
     }
 
     public function show()

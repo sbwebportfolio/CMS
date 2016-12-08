@@ -13,7 +13,7 @@ function save() {
     // Post the request.
     $.ajax({
         type: 'POST',
-        url: 'ControlPanel/Page/save',
+        url: 'Page/save',
         data: data,
         success: function(data) {
             var json = $.parseJSON(data);

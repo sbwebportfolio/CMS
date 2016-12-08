@@ -8,13 +8,13 @@
 		<title>Log in to control panel</title>
 		
         <!-- Stylesheets -->
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/login.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="<?= base_url() ?>assets/css/login.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
         <!-- Scripts -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="assets/js/login.js"></script>
+        <script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/login.js"></script>
 	</head>
     <body>
         <div id="container">

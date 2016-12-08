@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to save pages. -->
-<script type="text/javascript" src="assets/js/ControlPanel/edit-page.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/edit-page.js"></script>
 
 <h3>Edit page</h3>
 
