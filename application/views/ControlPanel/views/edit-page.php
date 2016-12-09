@@ -29,7 +29,7 @@
 		<div class="box">
 			<p class="bold">Page attributes</p>
 			<hr>
-			<p><input id="hidden" type="checkbox"><label for="hidden">Hidden</label></p>
+			<p><input id="hidden" type="checkbox" <?= $page->hidden ? 'checked' : '' ?>><label for="hidden">Hidden</label></p>
 			<p>Categories:</p>
 			<?php
 				foreach ($categories as $category)
