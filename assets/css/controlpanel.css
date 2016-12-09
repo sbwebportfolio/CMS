@@ -1,4 +1,28 @@
+/*
+Layout of this css file:
+- Elements
+- Tables
+- Input
+- Containers
+- Menu
+- Classes
+- Ids
+
 /*==== Elements ====*/
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+	border-color: lightgray;
+}
+
+/*==== Tables ====*/
 
 table {
 	width: 90%;
@@ -19,15 +43,117 @@ table td {
 	background-color: #fff;
 }
 
+/*==== Input ====*/
+
+button, input[type="submit"] {
+	padding: 5px 10px;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+button.blue, input[type="submit"].blue {
+	background-color: #1bf;
+	color: #fff;
+}
+
+button:hover, input[type="submit"]:hover {
+	border-color: #333;
+}
+
+input[type="text"], input[type="password"], textarea {
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-family: 'Open Sans', sans-serif;
+	margin-right: 10px;
+}
+
 input[type="text"]:not(.full-width), input[type="password"] {
 	width: 250px;
 }
 
-hr {
-	border-color: lightgray;
+#login-content > input[type="text"], #login-content > input[type="password"] {
+	width: 80%;
+}
+
+/*==== Containers ====*/
+
+#login-container {
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#login-content {
+	padding: 10px;
+	width: 300px;
+	background-color: #f4f4ff;
+}
+
+#container {
+	background-color: #002;
+	color: #fff;
+	width: 100%;
+	height: 100%;
+}
+
+#content-wrapper {
+	height: calc(100% - 80px);
+}
+
+#content {
+	flex: 1 100%;
+	order: 1;
+	padding: 20px;
+	min-width: 400px;
+	height: calc(100% - 40px);
+	overflow: auto;
+	color: #000;
+	background-color: #f4f4ff;
+}
+
+header, footer {
+	text-align: right;
+	height: 30px;
+	padding: 5px 10px;
+}
+
+header > h3, footer > h3 {
+	margin: 0;
+}
+
+/*==== Menu ====*/
+
+#menu {
+	flex: 1 200px;
+	order: 0;
+}
+
+[menu] {
+	cursor: pointer;
+	width: calc(100% - 30px);
+	padding: 10px;
+	margin-left: 10px;
+}
+
+[menu]:hover, [menu].highlight {
+	color: #000;
+	background-color: #f4f4ff;
+}
+
+.menu-group-items {
+	width: calc(100% - 10px);
+	margin-left: 10px;
+	background-color: #228;
 }
 
 /*==== Classes ====*/
+
+.error {
+	color: red;
+}
 
 .link {
 	cursor: pointer;
@@ -71,66 +197,7 @@ hr {
 	width: 100%;
 }
 
-/*==== Containers ====*/
-
-#container {
-	background-color: #002;
-	color: #fff;
-	width: 100%;
-	height: 100%;
-}
-
-#content-wrapper {
-	height: calc(100% - 80px);
-}
-
-#content {
-	flex: 1 100%;
-	order: 1;
-	padding: 20px;
-	min-width: 400px;
-	height: calc(100% - 40px);
-	overflow: auto;
-}
-
-/*==== Header, footer ====*/
-
-header, footer {
-	text-align: right;
-	height: 30px;
-	padding: 5px 10px;
-}
-
-header > h3, footer > h3 {
-	margin: 0;
-}
-
-/*==== Menu ====*/
-
-#menu {
-	flex: 1 200px;
-	order: 0;
-}
-
-[menu] {
-	cursor: pointer;
-	width: calc(100% - 30px);
-	padding: 10px;
-	margin-left: 10px;
-}
-
-[menu]:hover, [menu].highlight {
-	color: #000;
-	background-color: #f4f4ff;
-}
-
-.menu-group-items {
-	width: calc(100% - 10px);
-	margin-left: 10px;
-	background-color: #228;
-}
-
-/*==== Specific elements ====*/
+/*==== Ids ====*/
 
 #editor {
 	height: 400px;

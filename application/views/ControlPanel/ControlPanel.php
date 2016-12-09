@@ -8,7 +8,6 @@
 		<title>Control panel</title>
 		
 		<!-- Stylesheets -->
-		<link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 

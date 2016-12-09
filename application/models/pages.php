@@ -80,7 +80,7 @@ class Pages extends CI_Model
 			'categories' => [],
 			'created' => $now,
 			'updated' => $now,
-			'slug' => 'new-page',
+			'slug' => '',
 			'hidden' => 0
 		];
 	}

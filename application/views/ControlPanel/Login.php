@@ -8,8 +8,7 @@
 		<title>Log in to control panel</title>
 		
 		<!-- Stylesheets -->
-		<link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet" type="text/css" />
-		<link href="<?= base_url() ?>assets/css/login.css" rel="stylesheet" type="text/css" />
+		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 		<!-- Scripts -->
@@ -17,8 +16,8 @@
 		<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/login.js"></script>
 	</head>
 	<body>
-		<div id="container">
-			<div id="content">
+		<div id="login-container">
+			<div id="login-content">
 				<!-- Login -->
 				<form id="login-form">
 					<h3>Log in</h3>
