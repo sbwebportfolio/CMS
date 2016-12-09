@@ -39,35 +39,31 @@ class Pages extends CI_Model
 	}
 
 	/**
-	 * Create a new page.
+	 * Update or insert a page.
+	 * If the id is -1 then a new page will be created, otherwise the page with the given id will be updated.
 	 */
-	public function create($title, $content)
+	public function upsert($id, $title, $content, $slug, $hidden)
 	{
 		$data = [
 			'title' => $title,
-			'content' => $content
+			'content' => $content,
+			'slug' => $slug,
+			'hidden' => $hidden
 		];
-
-		$this->db->set('created', 'NOW()', FALSE);
 		$this->db->set('updated', 'NOW()', FALSE);
 
-		$this->db->insert('pages', $data);
-	}
+		// Check if the page should be created or updated.
+		if ($id == -1)
+		{
+			$this->db->set('created', 'NOW()', FALSE);
+			return $this->db->insert('pages', $data);	
+		}
+		else
+		{
+			$this->db->where('id', $id);
+			return $this->db->update('pages', $data);
+		}
 
-	/**
-	* Update an existing page.
-	*/
-	public function update($id, $title, $content)
-	{
-		$data = [
-			'title' => $title,
-			'content' => $content
-		];
-
-		$this->db->set('updated', 'NOW()', FALSE);
-
-		$this->db->where('id', $id);
-		return $this->db->update('pages', $data);
 	}
 
 	/**
@@ -84,6 +80,8 @@ class Pages extends CI_Model
 			'categories' => [],
 			'created' => $now,
 			'updated' => $now,
+			'slug' => 'new-page',
+			'hidden' => 0
 		];
 	}
 

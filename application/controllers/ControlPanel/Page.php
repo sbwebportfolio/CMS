@@ -25,18 +25,27 @@ class Page extends My_Controller
 		$id = $this->input->post('id');
 		$title = $this->input->post('title');
 		$content = $this->input->post('content');
+		$slug = $this->input->post('slug');
+		$hidden = $this->input->post('hidden') == "true";
 
-		$result = ['success' => TRUE, 'message' => 'The page was saved successfully.'];
+		// This seems strange, but this way we only have to change one of the result items.
+		$result = ['success' => FALSE, 'message' => 'The page was saved successfully.'];
 
-		// Check if the id is -1, then it is a new page.
-		if ($id == -1)
-			$this->pages->create($title, $content);
+		// Validate.
+		if (empty($id))
+			$result['message'] = 'The id of the page cannot be empty. Please refresh the page and try again.';
+		else if (empty($title))
+			$result['message'] = 'The title cannot be empty.';
+		else if (empty($slug))
+			$result['message'] = 'The slug cannot be empty.';
 		else
-			$result['success'] = $this->pages->update($id, $title, $content);
+		{
+			$result['success'] = $this->pages->upsert($id, $title, $content, $slug, $hidden);
 
-		// Check if the page was saved successfully.
-		if (!$result['success'])
-			$result['message'] = 'Something went wrong while trying to save the page.';
+			// Check if something went wrong while saving to the db.
+			if (!$result['success'])
+				$result['message'] = 'Something went wrong while trying to save the page.';
+		}
 
 		echo json_encode($result);
 	}

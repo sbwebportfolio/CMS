@@ -9,7 +9,11 @@
 <div class="row">
 	<!-- Editor -->
 	<div class="col wide">
-		<p><input id="title" class="full-width" type="text" value="<?= $page->title ?>"></p>
+		<p><input id="title" class="full-width" type="text" maxlength="255" value="<?= $page->title ?>" required></p>
+		<p>
+			Slug: <input id="slug" type="text" maxlength="255" placeholder="e.g.: my-page" value="<?= $page->slug ?>" required>
+			<button id="suggest-slug">Suggest a slug</button>
+		</p>
 		<p><textarea id="editor" class="full-width"><?= $page->content ?></textarea></p>
 	</div>
 	<div class="col big-margin">
