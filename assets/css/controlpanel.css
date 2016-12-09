@@ -6,13 +6,13 @@ table {
 }
 
 table td, table th {
-    border: 1px solid lightgray;
-    text-align: left;
-    padding: 10px;
+	border: 1px solid lightgray;
+	text-align: left;
+	padding: 10px;
 }
 
 table th {
-    background-color: lightgray;
+	background-color: lightgray;
 }
 
 table td {

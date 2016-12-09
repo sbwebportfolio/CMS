@@ -6,6 +6,6 @@
 <h2>Are you sure you want to remove "<?= $page->title ?>"?</h2>
 <p>This action is permanent and cannot be undone.</p>
 <p>
-    <input id="page-id" type="hidden" value="<?= $page->id ?>">
-    <button id="remove">Yes, remove it</button><button id="cancel">Cancel</button>
+	<input id="page-id" type="hidden" value="<?= $page->id ?>">
+	<button id="remove" class="blue">Yes, remove it</button><button id="cancel">Cancel</button>
 </p>
