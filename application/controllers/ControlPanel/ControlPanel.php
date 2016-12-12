@@ -28,6 +28,10 @@ class ControlPanel extends My_Controller
 		if (!$this->ion_auth->logged_in())
 			redirect('/ControlPanel');
 
+		// Load the models.
+		$this->load->model('pages_model', 'pages');
+		$this->load->model('categories');
+
 		// Get the requested menu, check if it is valid.
 		$menu = $this->input->get('menu');
 		if (in_array($menu, self::MENU_ITEMS))
@@ -47,15 +51,11 @@ class ControlPanel extends My_Controller
 
 	private function show_pages()
 	{
-		$this->load->model('pages');
-		$this->load->view('ControlPanel/views/pages', ['pages' => $this->pages->all()]);
+		$this->load->view('ControlPanel/views/pages', ['pages' => $this->pages->all(TRUE)]);
 	}
 
 	private function show_new_page()
 	{
-		$this->load->model('pages');
-		$this->load->model('categories');
-
 		$data = [
 			'page' => $this->pages->newPage(),
 			'categories' => $this->categories->all()
@@ -66,9 +66,6 @@ class ControlPanel extends My_Controller
 
 	private function show_edit_page()
 	{
-		$this->load->model('pages');
-		$this->load->model('categories');
-
 		$data = [
 			'page' => $this->pages->get($this->input->get('id')),
 			'categories' => $this->categories->all()
@@ -79,7 +76,6 @@ class ControlPanel extends My_Controller
 
 	private function show_remove_page()
 	{
-		$this->load->model('pages');
 		$this->load->view('ControlPanel/views/remove-page', ['page' => $this->pages->get($this->input->get('id'))]);
 	}
 

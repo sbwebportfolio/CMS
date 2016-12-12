@@ -6,7 +6,7 @@ class Page extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('pages');
+		$this->load->model('pages_model', 'pages');
 	}
 
 	public function _remap($name, $args)

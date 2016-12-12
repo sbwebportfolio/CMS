@@ -11,7 +11,7 @@ class Page extends My_Controller
 		$this->checkAjax();
 		$this->checkLoggedInAjax();
 
-		$this->load->model('pages');
+		$this->load->model('pages_model', 'pages');
 	}
 
 	public function remove()

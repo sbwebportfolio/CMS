@@ -1,13 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Model
+class Pages_model extends CI_Model
 {
 	/**
 	 * Get all pages.
 	 */
-	public function all()
+	public function all($showHidden)
 	{
+		// Check if hidden pages should actually be hidden.
+		if (!$showHidden)
+			$this->db->where('hidden', 0);
+		
 		$pages = $this->db->get('pages')->result();
 		foreach ($pages as $page)
 			$this->setCategories($page);
