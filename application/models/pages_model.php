@@ -106,6 +106,22 @@ class Pages_model extends CI_Model
 	}
 
 	/**
+	 * Get all pages in a category.
+	 */
+	public function inCategory($catId)
+	{
+		// Get all category rows.
+		$this->db->where('category_id', $catId);
+		$rows = $this->db->get('categories')->result();
+
+		// Get all pages from the ids.
+		$pages = [];
+		foreach ($rows as $row)
+			$pages[] = $this->get($row->page_id);
+		return $pages;
+	}
+
+	/**
 	 * Set the categories for a page.
 	 */
 	private function setCategories($page)

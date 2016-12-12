@@ -12,6 +12,15 @@ class Categories_model extends CI_Model
 	}
 
 	/**
+	 * Get a category by its name.
+	 */
+	public function getByName($name)
+	{
+		$this->db->where('name', $name);
+		return $this->db->get('category_names')->row();
+	}
+
+	/**
 	 * Remove a category.
 	 */
 	public function remove($id)

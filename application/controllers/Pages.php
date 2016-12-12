@@ -14,9 +14,7 @@ class Pages extends CI_Controller
 		// Check for a name or arguments, which invalidate the url.
 		if ($name !== 'index' || !empty($args))
 			show_404();
-
-		// Get all pages.
-		$pages = $this->pages->all(FALSE);
-		$this->load->view('pages', ['pages' => $pages]);
+			
+		$this->load->view('pages', ['pages' => $this->pages->all(FALSE)]);
 	}
 }

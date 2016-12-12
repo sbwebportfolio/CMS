@@ -14,9 +14,7 @@ class Categories extends CI_Controller
 		// Check for a name or arguments, which invalidate the url.
 		if ($name !== 'index' || !empty($args))
 			show_404();
-
-		// Get all categories.
-		$categories = $this->categories->all();
-		$this->load->view('categories', ['categories' => $categories]);
+		
+		$this->load->view('categories', ['categories' => $this->categories->all()]);
 	}
 }
