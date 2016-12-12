@@ -19,10 +19,27 @@ class Pages extends CI_Model
 	 */
 	public function get($id)
 	{
+		return $this->getByProperty('id', $id);
+	}
+	
+	/**
+	 * Get a page by its slug.
+	 */
+	public function getBySlug($slug)
+	{
+		return $this->getByProperty('slug', $slug);
+	}
+
+	/**
+	 * Get a page by a certain property.
+	 */
+	private function getByProperty($name, $value)
+	{
 		$this->load->model('categories');
-		$this->db->where('id', $id);
+		$this->db->where($name, $value);
 		$page = $this->db->get('pages')->row();
-		$this->setCategories($page);
+		if ($page != NULL)
+			$this->setCategories($page);
 		return $page;
 	}
 
