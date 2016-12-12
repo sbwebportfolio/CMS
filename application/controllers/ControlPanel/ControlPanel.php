@@ -30,7 +30,7 @@ class ControlPanel extends My_Controller
 
 		// Load the models.
 		$this->load->model('pages_model', 'pages');
-		$this->load->model('categories');
+		$this->load->model('categories_model', 'categories');
 
 		// Get the requested menu, check if it is valid.
 		$menu = $this->input->get('menu');

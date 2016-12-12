@@ -39,7 +39,6 @@ class Pages_model extends CI_Model
 	 */
 	private function getByProperty($name, $value)
 	{
-		$this->load->model('categories');
 		$this->db->where($name, $value);
 		$page = $this->db->get('pages')->row();
 		if ($page != NULL)
