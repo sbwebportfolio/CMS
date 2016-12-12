@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Controller
+class Categories extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('pages_model', 'pages');
+		$this->load->model('categories_model', 'categories');
 	}
 
 	public function _remap($name, $args)
@@ -15,8 +15,8 @@ class Pages extends CI_Controller
 		if ($name !== 'index' || !empty($args))
 			show_404();
 
-		// Get all pages.
-		$pages = $this->pages->all(FALSE);
-		$this->load->view('pages', ['pages' => $pages]);
+		// Get all categories.
+		$categories = $this->categories->all();
+		$this->load->view('categories', ['categories' => $categories]);
 	}
 }

@@ -20,6 +20,6 @@ class Page extends CI_Controller
 		if ($page == NULL)
 			show_404();
 		
-		$this->load->view('view_page', ['page' => $page]);
+		$this->load->view('page', ['page' => $page]);
 	}
 }
