@@ -35,11 +35,12 @@
 				foreach ($categories as $category)
 				{
 					$name = $category->name;
+					$id = $category->id;
 					$checked = in_array($name, $page->categories) ? 'checked' : '';
 					echo("
 					<p>
-						<input id='cat-$name' type='checkbox' $checked>
-						<label for='cat-$name'>$name</label>
+						<input id='category:$name' category-id='$id' class='category' type='checkbox' $checked>
+						<label for='category:$name'>$name</label>
 					</p>
 					");
 				}

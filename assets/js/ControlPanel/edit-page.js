@@ -7,13 +7,19 @@ $(document).ready(function() {
  * Save the page.
  */
 function save() {
-	// Get the data
+	// Get the data.
+	var categories = [];
+	$('input[type="checkbox"][category-id]:checked').each(function() {
+		categories.push($(this).attr('category-id'));
+	});
+
 	var data = {
 		id: $('#page-id').val(),
 		title: $('#title').val(),
 		content: $('#editor').val(),
 		slug: $('#slug').val(),
-		hidden: $('#hidden').is(':checked')
+		hidden: $('#hidden').is(':checked'),
+		categories: categories
 	};
 
 	// Post the request.

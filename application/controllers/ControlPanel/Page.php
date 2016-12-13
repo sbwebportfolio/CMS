@@ -12,6 +12,7 @@ class Page extends My_Controller
 		$this->checkLoggedInAjax();
 
 		$this->load->model('pages_model', 'pages');
+		$this->load->model('categories_model', 'categories');
 	}
 
 	public function remove()
@@ -27,6 +28,11 @@ class Page extends My_Controller
 		$content = $this->input->post('content');
 		$slug = $this->input->post('slug');
 		$hidden = $this->input->post('hidden') == "true";
+		$categories = $this->input->post('categories');
+
+		// The categories should be an array.
+		if (empty($categories))
+			$categories = [];
 
 		// This seems strange, but this way we only have to change one of the result items.
 		$result = ['success' => FALSE, 'message' => 'The page was saved successfully.'];
@@ -42,8 +48,11 @@ class Page extends My_Controller
 		{
 			$result['success'] = $this->pages->upsert($id, $title, $content, $slug, $hidden);
 
+			// Set the categories.
+			if ($result['success'])
+				$this->categories->set($id, $categories);
 			// Check if something went wrong while saving to the db.
-			if (!$result['success'])
+			else
 				$result['message'] = 'Something went wrong while trying to save the page.';
 		}
 

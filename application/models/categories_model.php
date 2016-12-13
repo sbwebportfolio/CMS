@@ -39,4 +39,24 @@ class Categories_model extends CI_Model
 	{
 		$this->db->insert('category_names', ['name' => $name]);
 	}
+
+	/**
+	 * Set the categories for a page.
+	 */
+	public function set($pageId, $catIds)
+	{
+		// Clear the page from the categories list.
+		$this->db->where('page_id', $pageId);
+		$this->db->delete('categories');
+
+		// Insert the new categories.
+		foreach ($catIds as $category)
+		{
+			$data = [
+				'page_id' => $pageId,
+				'category_id' => $category
+			];
+			$this->db->insert('categories', $data);
+		}
+	}
 }
