@@ -14,6 +14,7 @@ function addUser(e) {
 	var pass = $('#pass').val();
 	var pass2 = $('#pass2').val();
 	if (pass != pass2) {
+		$('#info').addClass('error');
 		$('#info').text('The passwords do not match.');
 		return;
 	}
@@ -44,6 +45,8 @@ function showResult(data) {
 	$('#info').text(json.error ? json.error : 'The user was added successfully.');
 
 	// Empty the password inputs, show the message.
-	$('#pass').val('');
-	$('#pass2').val('');
+	if (json.error == null) {
+		$('#pass').val('');
+		$('#pass2').val('');
+	}
 }
