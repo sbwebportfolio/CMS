@@ -43,6 +43,15 @@ table td {
 	background-color: #fff;
 }
 
+tr .hover-visible {
+	visibility: hidden;
+	font-size: 0.8em;
+}
+
+tr:hover .hover-visible {
+	visibility: visible;
+}
+
 /*==== Input ====*/
 
 button, input[type="submit"] {

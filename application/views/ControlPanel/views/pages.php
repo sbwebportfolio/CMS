@@ -9,7 +9,6 @@
 <table id="pages-table">
 	<tr>
 		<th>Title</th>
-		<th>Actions</th>
 		<th>Categories</th>
 		<th>Last updated</th>
 		<th>Created</th>
@@ -20,8 +19,13 @@
 			$categories = implode(', ', $page->categories);
 			echo("
 			<tr>
-				<td>$page->title</td>
-				<td><span page='$page->id' class='link' action='edit-page'>edit</span> | <span page='$page->id' class='link' action='remove-page'>remove</span></td>
+				<td>
+					$page->title<br>
+					<div class='hover-visible'>
+						<span page='$page->id' class='link' action='edit-page'>edit</span> |
+						<span page='$page->id' class='link' action='remove-page'>remove</span>
+					</div>
+				</td>
 				<td>$categories</td>
 				<td>$page->updated</td>
 				<td>$page->created</td>
