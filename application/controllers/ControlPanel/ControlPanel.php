@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
 	const MENU_ITEMS = [
-		'pages', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'new-page', 'media'
+		'pages', 'menus', 'users', 'profile', 'edit-page', 'remove-page', 'add-user', 'new-page', 'media', 'edit-user', 'remove-user'
 	];
 
 	public function index()
@@ -87,5 +87,15 @@ class ControlPanel extends My_Controller
 	private function show_profile()
 	{
 		$this->load->view('ControlPanel/views/profile', ['user' => $this->ion_auth->user()->row()]);
+	}
+
+	private function show_edit_user()
+	{
+		$this->load->view('ControlPanel/views/edit-user', ['user' => $this->ion_auth->user($this->input->get('id'))->row()]);
+	}
+
+	private function show_remove_user()
+	{
+		$this->load->view('ControlPanel/views/remove-user', ['user' => $this->ion_auth->user($this->input->get('id'))->row()]);
 	}
 }

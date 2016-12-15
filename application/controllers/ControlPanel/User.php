@@ -32,6 +32,12 @@ class User extends My_Controller
 		redirect('/ControlPanel');
 	}
 
+	public function remove()
+	{
+		$this->checkAjax();
+		$this->showResult($this->ion_auth->delete_user($this->input->get('id')));
+	}
+
 	/**
 	 * Send a password recovery e-mail. (TODO)
 	 */

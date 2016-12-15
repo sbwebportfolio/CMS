@@ -1,5 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<!-- Script to show users. -->
+<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/users.js"></script>
+
 <h2>Users</h2>
 
 <!-- Users table. -->
@@ -15,7 +18,7 @@
 		{
 			$created = date('Y-m-d', $user->created_on);
 			echo("
-			<tr>
+			<tr class='link' user='$user->id'>
 				<td>$user->first_name</td>
 				<td>$user->last_name</td>
 				<td>$user->email</td>
