@@ -44,7 +44,7 @@
 				$checked = in_array($category->name, $page->categories) ? 'checked' : '';
 			?>
 				<p>
-					<input type='checkbox' id='category:<?= $category->name ?>' category-id='<?= $category->name ?>' class='category' <?= $checked ?>>
+					<input type='checkbox' id='category:<?= $category->name ?>' category-id='<?= $category->id ?>' class='category' <?= $checked ?>>
 					<label for='category:<?= $category->name ?>'><?= $category->name ?></label>
 				</p>
 			<?php

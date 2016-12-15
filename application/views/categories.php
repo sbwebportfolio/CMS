@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html">
 		
-		<title>Pages</title>
+		<title>Categories</title>
 	</head>
 	<body>
 		<h2>Categories:</h2>
@@ -14,7 +14,7 @@
 		foreach ($categories as $category)
 		{
 		?>
-			<li><?= $category->name ?></li>
+			<li><a href="Category/<?= $category->name ?>"><?= $category->name ?></a></li>
 		<?php	
 		}
 		?>

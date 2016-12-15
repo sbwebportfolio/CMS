@@ -119,7 +119,11 @@ class Pages_model extends CI_Model
 		// Get all pages from the ids.
 		$pages = [];
 		foreach ($rows as $row)
-			$pages[] = $this->get($row->page_id);
+		{
+			$page = $this->get($row->page_id);
+			if (!$page->hidden)
+				$pages[] = $page;
+		}
 		return $pages;
 	}
 
