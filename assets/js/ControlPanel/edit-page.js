@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('#save').on('click', save);
+	$('#remove').on('click', remove);
 	$('#suggest-slug').on('click', suggestSlug);
 });
 
@@ -32,8 +33,20 @@ function save() {
 
 			$('#info').toggleClass('error', !json.success);
 			$('#info').text(json.message);
+
+			// Save the new page id.
+			if (json.success)
+				$('#page-id').val(json.id);
 		}
 	});
+}
+
+/**
+ * Remove the page.
+ */
+function remove() {
+	var id = $('#page-id').val();
+	showMenu(id == -1 ? 'pages' : 'remove-page', false, {id: id});
 }
 
 /**

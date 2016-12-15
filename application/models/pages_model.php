@@ -61,6 +61,8 @@ class Pages_model extends CI_Model
 	/**
 	 * Update or insert a page.
 	 * If the id is -1 then a new page will be created, otherwise the page with the given id will be updated.
+	 * 
+	 * @return The id of the page if the upsert was successful, or FALSE otherwise.
 	 */
 	public function upsert($id, $title, $content, $slug, $hidden)
 	{
@@ -73,15 +75,16 @@ class Pages_model extends CI_Model
 		$this->db->set('updated', 'NOW()', FALSE);
 
 		// Check if the page should be created or updated.
+		$success = FALSE;
 		if ($id == -1)
 		{
 			$this->db->set('created', 'NOW()', FALSE);
-			return $this->db->insert('pages', $data);	
+			return $this->db->insert('pages', $data) ? $this->db->insert_id() : FALSE;
 		}
 		else
 		{
 			$this->db->where('id', $id);
-			return $this->db->update('pages', $data);
+			return $this->db->update('pages', $data) ? $id : FALSE;
 		}
 	}
 

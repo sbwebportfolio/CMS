@@ -46,11 +46,15 @@ class Page extends My_Controller
 			$result['message'] = 'The slug cannot be empty.';
 		else
 		{
-			$result['success'] = $this->pages->upsert($id, $title, $content, $slug, $hidden);
+			 $newId = $this->pages->upsert($id, $title, $content, $slug, $hidden);
+			 $result['success'] = $newId !== FALSE;
 
 			// Set the categories.
 			if ($result['success'])
-				$this->categories->set($id, $categories);
+			{
+				$result['id'] = $newId;
+				$this->categories->set($newId, $categories);
+			}
 			// Check if something went wrong while saving to the db.
 			else
 				$result['message'] = 'Something went wrong while trying to save the page.';

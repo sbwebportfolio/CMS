@@ -19,13 +19,7 @@
 			$categories = implode(', ', $page->categories);
 			echo("
 			<tr>
-				<td>
-					$page->title<br>
-					<div class='hover-visible'>
-						<span page='$page->id' class='link' action='edit-page'>edit</span> |
-						<span page='$page->id' class='link' action='remove-page'>remove</span>
-					</div>
-				</td>
+				<td><span page='$page->id' class='link'>$page->title</span></td>
 				<td>$categories</td>
 				<td>$page->updated</td>
 				<td>$page->created</td>
