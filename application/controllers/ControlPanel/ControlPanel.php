@@ -36,22 +36,30 @@ class ControlPanel extends My_Controller
 		$menu = $this->input->get('menu');
 		if (in_array($menu, self::MENU_ITEMS))
 		{
-			// If a custom method exists, call that. Otherwise simply load the view.
+			$data = [];
+
+			// If a custom method exists, call that to get the data.
 			$function = 'show_' . str_replace('-', '_', $menu);
 			if (method_exists($this, $function))
-				$this->$function();
-			else
-				$this->load->view('ControlPanel/views/' . $menu);
+				$data = $this->$function();
+
+			// If the method did not return false, load the view.
+			if ($data !== FALSE)
+				$this->load->view('ControlPanel/views/' . $menu, $data);
 		}
 		else
 			show_404();
 	}
 
-	/*==== View-specific data loading functions. ====*/
+	/*
+	View-specific data loading functions.
+	These function either return an array containing data to be passed to the view with the same name,
+	or FALSE to override the view loading.
+	*/
 
 	private function show_pages()
 	{
-		$this->load->view('ControlPanel/views/pages', ['pages' => $this->pages->all(TRUE)]);
+		return ['pages' => $this->pages->all(TRUE)];
 	}
 
 	private function show_new_page()
@@ -62,40 +70,39 @@ class ControlPanel extends My_Controller
 		];
 
 		$this->load->view('ControlPanel/views/edit-page', $data);
+		return FALSE;
 	}
 
 	private function show_edit_page()
 	{
-		$data = [
+		return [
 			'page' => $this->pages->get($this->input->get('id')),
 			'categories' => $this->categories->all()
 		];
-
-		$this->load->view('ControlPanel/views/edit-page', $data);
 	}
 
 	private function show_remove_page()
 	{
-		$this->load->view('ControlPanel/views/remove-page', ['page' => $this->pages->get($this->input->get('id'))]);
+		return ['page' => $this->pages->get($this->input->get('id'))];
 	}
 
 	private function show_users()
 	{
-		$this->load->view('ControlPanel/views/users', ['users' => $this->ion_auth->users()->result()]);
+		return ['users' => $this->ion_auth->users()->result()];
 	}
 
 	private function show_profile()
 	{
-		$this->load->view('ControlPanel/views/profile', ['user' => $this->ion_auth->user()->row()]);
+		return ['user' => $this->ion_auth->user()->row()];
 	}
 
 	private function show_edit_user()
 	{
-		$this->load->view('ControlPanel/views/edit-user', ['user' => $this->ion_auth->user($this->input->get('id'))->row()]);
+		return ['user' => $this->ion_auth->user($this->input->get('id'))->row()];
 	}
 
 	private function show_remove_user()
 	{
-		$this->load->view('ControlPanel/views/remove-user', ['user' => $this->ion_auth->user($this->input->get('id'))->row()]);
+		return $this->show_edit_user();
 	}
 }
