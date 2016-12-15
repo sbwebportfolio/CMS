@@ -1,6 +1,7 @@
 // Menu item properties.
 const menuHighlightClass = 'highlight';
 var currentMenu;
+var menuData;
 var menuItems = {};
 var menuGroups = {};
 
@@ -45,40 +46,56 @@ function initializeMenu() {
 }
 
 /**
- * Load the correct menu from the url hash.
- * 
- * TODO: read extra info (e.g. for editing pages, so refresh is possible).
+ * Read the menu name and data from the url hash.
  */
 function menuFromHash() {
-	var hash = window.location.hash.substr(1);
-	if (hash)
-		showMenu(hash);
+	var hash = location.hash.substr(1);
+
+	// Get the position of the separator, check if the hash contains menu data.
+	var separator = hash.indexOf(':');
+	if (separator == -1)
+		separator = hash.length;
+
+	// Get the menu name and data.
+	var name = hash.substr(0, separator)
+	var data = hash.substr(separator + 1);
+
+	// Show the menu.
+	if (name)
+		showMenu(name, data);
 }
 
 /**
  * Show a control panel menu.
  * 
- * @param menuString The name of the menu.
- * @param updateHash Whether to update the url hash.
- * @param data The data to send with the request.
+ * @param name The name of the menu.
+ * @param data The menu data, typically an id.
  */
-function showMenu(menuString, updateHash, data) {
+function showMenu(name, data) {
+	if (data == '')
+		data = null;
+
 	// Save the previous and current menu string.
 	var prevMenuString = currentMenu;
-	currentMenu = menuString;
+	currentMenu = name;
 
-	// Set the hash.
-	if (updateHash != false)
-		history.pushState(null, null, '#' + currentMenu);
+	// Build the hash string.
+	var hashString = '#' + currentMenu;
+	if (data != null)
+		hashString += ':' + data;
+	
+	// Check if the hash is already set properly, to prevent setting it twice.
+	if (location.hash != hashString)
+		history.pushState(null, null, hashString);
 	
 	// Update the menu visuals.
-	updateMenu(prevMenuString, updateHash != false);
+	updateMenu(prevMenuString, true);
 
 	// Get the menu content.
 	$.ajax({
 		type: 'GET',
 		url: 'ControlPanel/ControlPanel/show?menu=' + currentMenu,
-		data: data,
+		data: data == null ? {} : {id: data},
 		success: function(data) {
 			$('#content').html(data);
 		},

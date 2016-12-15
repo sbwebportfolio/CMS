@@ -43,10 +43,11 @@ function save() {
 
 /**
  * Remove the page.
+ * TODO: properly handle removing a new page.
  */
 function remove() {
 	var id = $('#page-id').val();
-	showMenu(id == -1 ? 'pages' : 'remove-page', false, {id: id});
+	showMenu(id == -1 ? 'pages' : 'remove-page', $('#page-id').val());
 }
 
 /**

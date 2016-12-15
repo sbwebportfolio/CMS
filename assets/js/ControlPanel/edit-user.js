@@ -6,5 +6,5 @@ $(document).ready(function() {
  * Remove the user.
  */
 function remove() {
-	showMenu('remove-user', false, {id: $('#user-id').val()});
+	showMenu('remove-user', $('#user-id').val());
 }

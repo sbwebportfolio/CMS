@@ -1,8 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<!-- Script to show users. -->
-<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/users.js"></script>
-
 <h2>Users</h2>
 
 <!-- Users table. -->
@@ -13,18 +10,18 @@
 		<th>E-mail address</th>
 		<th>Date added</th>
 	</tr>
+	<!-- Create a row for each user. -->
 	<?php
-		foreach ($users as $user)
-		{
-			$created = date('Y-m-d', $user->created_on);
-			echo("
-			<tr class='link' user='$user->id'>
-				<td>$user->first_name</td>
-				<td>$user->last_name</td>
-				<td>$user->email</td>
-				<td>$created</td>
-			</tr>
-			");
-		}
+	foreach ($users as $user)
+	{
+	?>
+		<tr onclick="location.href = '#edit-user:<?= $user->id ?>';">
+			<td><?= $user->first_name ?></td>
+			<td><?= $user->last_name ?></td>
+			<td><?= $user->email ?></td>
+			<td><?= date('Y-m-d', $user->created_on) ?></td>
+		</tr>
+	<?php
+	}
 	?>
 </table>

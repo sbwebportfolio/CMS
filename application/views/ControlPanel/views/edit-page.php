@@ -32,21 +32,23 @@
 		<div class="box">
 			<p class="bold">Page attributes</p>
 			<hr>
-			<p><input id="hidden" type="checkbox" <?= $page->hidden ? 'checked' : '' ?>><label for="hidden">Hidden</label></p>
+			<p>
+				<input id="hidden" type="checkbox" <?= $page->hidden ? 'checked' : '' ?>>
+				<label for="hidden">Hidden</label>
+			</p>
 			<p>Categories:</p>
+			<!-- Create a checkbox for each category. -->
 			<?php
-				foreach ($categories as $category)
-				{
-					$name = $category->name;
-					$id = $category->id;
-					$checked = in_array($name, $page->categories) ? 'checked' : '';
-					echo("
-					<p>
-						<input id='category:$name' category-id='$id' class='category' type='checkbox' $checked>
-						<label for='category:$name'>$name</label>
-					</p>
-					");
-				}
+			foreach ($categories as $category)
+			{
+				$checked = in_array($category->name, $page->categories) ? 'checked' : '';
+			?>
+				<p>
+					<input type='checkbox' id='category:<?= $category->name ?>' category-id='<?= $category->name ?>' class='category' <?= $checked ?>>
+					<label for='category:<?= $category->name ?>'><?= $category->name ?></label>
+				</p>
+			<?php
+			}
 			?>
 		</div>
 	</div>

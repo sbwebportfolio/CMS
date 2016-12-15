@@ -43,11 +43,11 @@ tr {
 	background-color: #fff;
 }
 
-tr.link {
-	text-decoration: initial;
+tr[onclick] {
+	cursor: pointer;
 }
 
-tr.link:hover {
+tr[onclick]:hover {
 	background-color: #eee;
 }
 

@@ -1,8 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<!-- Script to edit or delete pages. -->
-<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/pages.js"></script>
-
 <h2>Pages</h2>
 
 <!-- Pages table. -->
@@ -13,18 +10,18 @@
 		<th>Last updated</th>
 		<th>Created</th>
 	</tr>
+	<!-- Create a row for each page. -->
 	<?php
-		foreach ($pages as $page)
-		{
-			$categories = implode(', ', $page->categories);
-			echo("
-			<tr class='link' page='$page->id'>
-				<td>$page->title</td>
-				<td>$categories</td>
-				<td>$page->updated</td>
-				<td>$page->created</td>
-			</tr>
-			");
-		}
+	foreach ($pages as $page)
+	{
+	?>
+		<tr onclick="location.hash = '#edit-page:<?= $page->id ?>';">
+			<td><?= $page->title ?></td>
+			<td><?= implode(', ', $page->categories) ?></td>
+			<td><?= $page->updated ?></td>
+			<td><?= $page->created ?></td>
+		</tr>
+	<?php
+	}
 	?>
 </table>
