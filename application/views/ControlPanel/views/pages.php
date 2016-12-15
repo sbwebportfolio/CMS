@@ -18,8 +18,8 @@
 		{
 			$categories = implode(', ', $page->categories);
 			echo("
-			<tr>
-				<td><span page='$page->id' class='link'>$page->title</span></td>
+			<tr class='link' page='$page->id'>
+				<td>$page->title</td>
 				<td>$categories</td>
 				<td>$page->updated</td>
 				<td>$page->created</td>

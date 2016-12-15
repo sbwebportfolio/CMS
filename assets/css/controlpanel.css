@@ -29,18 +29,26 @@ table {
 	border-collapse: collapse;
 }
 
-table td, table th {
+td, th {
 	border: 1px solid lightgray;
 	text-align: left;
 	padding: 10px;
 }
 
-table th {
+th {
 	background-color: lightgray;
 }
 
-table td {
+tr {
 	background-color: #fff;
+}
+
+tr.link {
+	text-decoration: initial;
+}
+
+tr.link:hover {
+	background-color: #eee;
 }
 
 /*==== Input ====*/
