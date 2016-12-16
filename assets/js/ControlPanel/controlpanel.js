@@ -13,6 +13,16 @@ var showingLoading = false;
 var $loading;
 var $content;
 
+/*==== Custom jQuery functions. ====*/
+
+$.fn.visible = function() {
+    return this.css('visibility', 'visible');
+};
+
+$.fn.invisible = function() {
+    return this.css('visibility', 'hidden');
+};
+
 /**
  * The document ready event.
  */

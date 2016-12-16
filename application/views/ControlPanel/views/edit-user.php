@@ -7,20 +7,21 @@
 
 <!-- User information. -->
 <input id="user-id" type="hidden" value="<?= $user->id ?>">
-<p>
-	<label for="first-name">First name</label><br>
-	<input id="first-name" type="text" value="<?= $user->first_name ?>">
-</p>
-<p>
-	<label for="last-name">Last name</label><br>
-	<input id="last-name" type="text" value="<?= $user->last_name ?>">
-</p>
-<p>
-	<label for="email">E-mail address</label><br>
-	<input id="email" type="text" required value="<?= $user->email ?>">
-</p>
+<p>First name: <?= $user->first_name ?></p>
+<p>Last name: <?= $user->last_name ?></p>
+<p>E-mail address: <?= $user->email ?></p>
 
 <p class="bold">Remove this user</p>
-<p>
-	<button id="remove">Remove</button>
-</p>
+<p><button id="remove">Remove</button></p>
+
+<!-- Remove user overlay. -->
+<div id="remove-dialog" class="overlay">
+	<div>
+		<h2>Are you sure you want to remove "<?= $user->first_name . ' ' . $user->last_name . ' (' . $user->email . ')' ?>"?</h2>
+		<p>This action is permanent and cannot be undone.</p>
+		<p>
+			<button id="confirm-remove" class="blue">Yes, remove them</button>
+			<button id="cancel-remove">Cancel</button>
+		</p>
+	</div>
+</div>

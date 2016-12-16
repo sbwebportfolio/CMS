@@ -54,3 +54,15 @@
 	</div>
 </div>
 <p id="info"></p>
+
+<!-- Remove page overlay. -->
+<div id="remove-dialog" class="overlay">
+	<div>
+		<h2>Are you sure you want to remove "<?= $page->title ?>"?</h2>
+		<p>This action is permanent and cannot be undone.</p>
+		<p>
+			<button id="confirm-remove" class="blue">Yes, remove it</button>
+			<button id="cancel-remove">Cancel</button>
+		</p>
+	</div>
+</div>

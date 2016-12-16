@@ -1,7 +1,12 @@
 $(document).ready(function() {
+	// Button events.
 	$('#save').on('click', save);
-	$('#remove').on('click', remove);
+	$('#remove').on('click', function() { $('#remove-dialog').visible(); });
 	$('#suggest-slug').on('click', suggestSlug);
+	
+	// Delete dialog events.
+	$('#confirm-remove').on('click', remove);
+	$('#cancel-remove').on('click', function() { $('#remove-dialog').invisible(); });
 });
 
 /**
@@ -43,11 +48,24 @@ function save() {
 
 /**
  * Remove the page.
- * TODO: properly handle removing a new page.
  */
 function remove() {
 	var id = $('#page-id').val();
-	showMenu(id == -1 ? 'pages' : 'remove-page', $('#page-id').val());
+
+	// If it is a new page simply go back to the pages menu.
+	if (id == -1) {
+		showMenu('pages');
+		return;
+	}
+
+	// Do the remove request.
+	$.ajax({
+		type: 'GET',
+		url: 'ControlPanel/Page/remove?id=' + $('#page-id').val(),
+		success: function(data) {
+			showMenu('pages');
+		}
+	});
 }
 
 /**
