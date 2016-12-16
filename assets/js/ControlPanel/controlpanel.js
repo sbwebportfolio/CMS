@@ -5,16 +5,56 @@ var menuData;
 var menuItems = {};
 var menuGroups = {};
 
+// Loader.
+const waitBeforeShowing = 200; // Delay before showing the loading image to prevent it from flashing.
+var showingLoading = false;
+
+// Elements.
+var $loading;
+var $content;
+
 /**
  * The document ready event.
  */
 $(document).ready(function() {
+	// Get the elements.
+	$content = $('#content');
+	$loading = $('#loading');
+
+	showLoading();
 	initializeMenu();
 
 	// Hook into the hash change event.
 	menuFromHash();
 	$(window).bind('hashchange', menuFromHash);
+
+	hideLoading();
 });
+
+/**
+ * Show the loading screen.
+ */
+function showLoading() {
+	showingLoading = true;
+
+	// After a small delay show the loading image.
+	setTimeout(function() {
+		// Check if the loading is not already done.
+		if (showingLoading) {
+			$content.hide();
+			$loading.show();
+		}
+	}, waitBeforeShowing);
+}
+
+/**
+ * Hide the loading screen.
+ */
+function hideLoading() {
+	showingLoading = false;
+	$content.show();
+	$loading.hide();
+}
 
 /**
  * Initialize the menu.
@@ -72,6 +112,8 @@ function menuFromHash() {
  * @param data The menu data, typically an id.
  */
 function showMenu(name, data) {
+	showLoading();
+
 	if (data == '')
 		data = null;
 
@@ -97,11 +139,12 @@ function showMenu(name, data) {
 		url: 'ControlPanel/ControlPanel/show?menu=' + currentMenu,
 		data: data == null ? {} : {id: data},
 		success: function(data) {
-			$('#content').html(data);
+			$content.html(data);
 		},
 		error: function(data) {
-			$('#content').html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
-		}
+			$content.html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
+		},
+		complete: hideLoading
 	});
 }
 

@@ -38,8 +38,13 @@
 						</div>
 					</div>
 				</div>
-				<div id="content">
-					Something something content
+				<div id="content-row">
+					<div id="content">
+						Something something content
+					</div>
+					<div id="loading">
+						<img src="<?= base_url() ?>assets/img/loading.gif">
+					</div>
 				</div>
 			</div>
 			<footer>

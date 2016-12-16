@@ -111,7 +111,7 @@ input[type="text"]:not(.full-width), input[type="password"] {
 	height: calc(100% - 80px);
 }
 
-#content {
+#content-row {
 	flex: 1 100%;
 	order: 1;
 	padding: 20px;
@@ -210,4 +210,14 @@ header > h3, footer > h3 {
 #editor {
 	height: 400px;
 	resize: none;
+}
+
+#loading {
+	height: 100%;
+	display: flex;
+}
+
+#loading > img {
+    margin: auto;
+	align-self: center;
 }
