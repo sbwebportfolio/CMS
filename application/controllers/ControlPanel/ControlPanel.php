@@ -31,6 +31,7 @@ class ControlPanel extends My_Controller
 		// Load the models.
 		$this->load->model('pages_model', 'pages');
 		$this->load->model('categories_model', 'categories');
+		$this->load->model('media_model', 'media');
 
 		// Get the requested menu, check if it is valid.
 		$menu = $this->input->get('menu');
@@ -104,5 +105,10 @@ class ControlPanel extends My_Controller
 	private function show_remove_user()
 	{
 		return $this->show_edit_user();
+	}
+
+	private function show_media()
+	{
+		return ['files' => $this->media->all()];
 	}
 }

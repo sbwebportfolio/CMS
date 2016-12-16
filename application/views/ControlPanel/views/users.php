@@ -3,7 +3,7 @@
 <h2>Users</h2>
 
 <!-- Users table. -->
-<table id="users-table">
+<table>
 	<tr>
 		<th>First name</th>
 		<th>Last name</th>
@@ -15,7 +15,7 @@
 	foreach ($users as $user)
 	{
 	?>
-		<tr onclick="location.href = '#edit-user:<?= $user->id ?>';">
+		<tr onclick="location.hash = '#edit-user:<?= $user->id ?>';">
 			<td><?= $user->first_name ?></td>
 			<td><?= $user->last_name ?></td>
 			<td><?= $user->email ?></td>

@@ -3,7 +3,7 @@
 <h2>Pages</h2>
 
 <!-- Pages table. -->
-<table id="pages-table">
+<table>
 	<tr>
 		<th>Title</th>
 		<th>Categories</th>
