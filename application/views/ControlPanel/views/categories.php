@@ -6,6 +6,7 @@
 <table>
 	<tr>
 		<th>Name</th>
+		<th>Pages</th>
 	</tr>
 	<!-- Create a row for each category. -->
 	<?php
@@ -14,6 +15,7 @@
 	?>
 		<tr>
 			<td><?= $category->name ?></td>
+			<td><?= $category->page_count ?></td>
 		</tr>
 	<?php
 	}

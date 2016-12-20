@@ -8,6 +8,13 @@ class Categories_model extends CI_Model
 	 */
 	public function all()
 	{
+		// Count the pages per category.
+		$this->db->select('category_id, COUNT(page_id) AS page_count');
+		$this->db->group_by('category_id');
+		$counts = $this->db->get_compiled_select('categories');
+
+		// Join the counts with the categories.
+		$this->db->join("($counts) AS counts", 'id = category_id', 'INNER');
 		return $this->db->get('category_names')->result();
 	}
 
