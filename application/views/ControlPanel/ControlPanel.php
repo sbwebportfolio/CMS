@@ -22,13 +22,8 @@
 			</header>
 			<div id="content-wrapper" class="row">
 				<div id="menu">
-					<div class="menu-group">
-						<div menu="pages">Pages</div>
-						<div class="menu-group-items">
-							<div menu="new-page">New page</div>
-							<div menu="categories">Categories</div>
-						</div>
-					</div>
+					<div menu="pages">Pages</div>
+					<div menu="categories">Categories</div>
 					<div menu="media">Media</div>
 					<div menu="menus">Menus</div>
 					<div menu="users">Users</div>

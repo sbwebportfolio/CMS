@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
 	const MENU_ITEMS = [
-		'pages', 'menus', 'users', 'profile', 'edit-page', 'new-page', 'media', 'edit-user', 'categories'
+		'pages', 'menus', 'users', 'profile', 'edit-page', 'media', 'edit-user', 'categories'
 	];
 
 	public function index()
@@ -65,19 +65,14 @@ class ControlPanel extends My_Controller
 
 	private function show_new_page()
 	{
-		$data = [
-			'page' => $this->pages->newPage(),
-			'categories' => $this->categories->all()
-		];
-
-		$this->load->view('ControlPanel/views/edit-page', $data);
-		return FALSE;
+		
 	}
 
 	private function show_edit_page()
 	{
+		$id = $this->input->get('id');
 		return [
-			'page' => $this->pages->get($this->input->get('id')),
+			'page' => $id == -1 ? $this->pages->newPage() : $this->pages->get($id),
 			'categories' => $this->categories->all()
 		];
 	}

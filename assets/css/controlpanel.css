@@ -28,6 +28,8 @@ hr {
 table {
 	width: 90%;
 	border-collapse: collapse;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 td, th {

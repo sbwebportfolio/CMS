@@ -2,6 +2,8 @@
 
 <h2>Pages</h2>
 
+<button class="blue" onclick="location.hash = '#edit-page:-1'">New page</button>
+
 <!-- Pages table. -->
 <table>
 	<tr>
