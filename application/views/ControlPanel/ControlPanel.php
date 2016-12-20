@@ -26,6 +26,7 @@
 						<div menu="pages">Pages</div>
 						<div class="menu-group-items">
 							<div menu="new-page">New page</div>
+							<div menu="categories">Categories</div>
 						</div>
 					</div>
 					<div menu="media">Media</div>

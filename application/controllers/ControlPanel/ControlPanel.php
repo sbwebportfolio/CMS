@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends My_Controller
 {
 	const MENU_ITEMS = [
-		'pages', 'menus', 'users', 'profile', 'edit-page', 'add-user', 'new-page', 'media', 'edit-user'
+		'pages', 'menus', 'users', 'profile', 'edit-page', 'add-user', 'new-page', 'media', 'edit-user', 'categories'
 	];
 
 	public function index()
@@ -105,5 +105,10 @@ class ControlPanel extends My_Controller
 	private function show_media()
 	{
 		return ['files' => $this->media->all()];
+	}
+
+	private function show_categories()
+	{
+		return ['categories' => $this->categories->all()];
 	}
 }
