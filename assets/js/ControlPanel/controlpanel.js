@@ -16,11 +16,11 @@ var $content;
 /*==== Custom jQuery functions. ====*/
 
 $.fn.visible = function() {
-    return this.css('visibility', 'visible');
+    this.css('visibility', 'visible');
 };
 
 $.fn.invisible = function() {
-    return this.css('visibility', 'hidden');
+    this.css('visibility', 'hidden');
 };
 
 /**
@@ -121,7 +121,7 @@ function menuFromHash() {
  * @param name The name of the menu.
  * @param data The menu data, typically an id.
  */
-function showMenu(name, data) {
+function showMenu(name, data, success) {
 	showLoading();
 
 	if (data == '')
@@ -150,6 +150,9 @@ function showMenu(name, data) {
 		data: data == null ? {} : {id: data},
 		success: function(data) {
 			$content.html(data);
+
+			if (typeof success === 'function')
+				success();
 		},
 		error: function(data) {
 			$content.html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
@@ -189,6 +192,6 @@ function updateMenu(prevMenuString, updateGroups) {
 /**
  * Refresh the current menu content.
  */
-function refreshContent() {
-	showMenu(currentMenu);
+function refreshContent(success) {
+	showMenu(currentMenu, menuData, success);
 }

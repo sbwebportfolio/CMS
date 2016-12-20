@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	// Button events.
 	$('#save').on('click', save);
-	$('#remove').on('click', function() { $('#remove-dialog').visible(); });
+	$('#remove').on('click', () => $('#remove-dialog').visible());
 	$('#suggest-slug').on('click', suggestSlug);
 	
 	// Delete dialog events.
 	$('#confirm-remove').on('click', remove);
-	$('#cancel-remove').on('click', function() { $('#remove-dialog').invisible(); });
+	$('#cancel-remove').on('click', () => $('#remove-dialog').invisible());
 });
 
 /**
