@@ -30,6 +30,7 @@ function addUser(e) {
 		type: 'POST',
 		url: 'ControlPanel/User/register',
 		data: data,
+		dataType: 'json',
 		success: showResult
 	});
 }
@@ -37,9 +38,7 @@ function addUser(e) {
 /**
  * Show the result of adding a user.
  */
-function showResult(data) {
-	var json = $.parseJSON(data);
-
+function showResult(json) {
 	// Check for errors.
 	if (json.error != null) {
 		$('#info').addClass('error');

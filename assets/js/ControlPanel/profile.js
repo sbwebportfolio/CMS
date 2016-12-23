@@ -22,9 +22,8 @@ function updateUser(e) {
 		type: 'POST',
 		url: 'ControlPanel/User/update',
 		data: data,
-		success: function(data) {
-			var json = $.parseJSON(data);
-
+		dataType: 'json',
+		success: function(json) {
 			// Check for errors.
 			$('#update-info').toggleClass('error', json.error != null);
 			$('#update-info').text(json.error ? json.error : 'Your information is saved.');
@@ -60,9 +59,8 @@ function changePass(e) {
 		type: 'POST',
 		url: 'ControlPanel/User/changePassword',
 		data: data,
-		success: function(data) {
-			var json = $.parseJSON(data);
-
+		dataType: 'json',
+		success: function(json) {
 			// Check for errors.
 			$('#pass-info').toggleClass('error', json.error != null);
 			$('#pass-info').text(json.error ? json.error : 'Your password is changed.');

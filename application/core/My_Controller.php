@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_Controller extends CI_Controller
+class MY_Controller extends CI_Controller
 {
 	/**
 	 * Check if the request is an AJAX request, or exit otherwise.

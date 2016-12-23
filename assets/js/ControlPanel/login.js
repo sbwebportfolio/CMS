@@ -41,9 +41,8 @@ function login(e) {
 		type: 'POST',
 		url: 'ControlPanel/User/login',
 		data: data,
-		success: function(data) {
-			var json = $.parseJSON(data);
-
+		dataType: 'json',
+		success: function(json) {
 			if (json.error)
 				$('#info').html(json.error);
 			else

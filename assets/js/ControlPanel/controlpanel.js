@@ -128,6 +128,7 @@ function showMenu(name, data, success) {
 		type: 'GET',
 		url: 'ControlPanel/ControlPanel/show?menu=' + currentMenu,
 		data: data == null ? {} : {id: data},
+		dataType: 'html',
 		success: function(data) {
 			$content.html(data);
 

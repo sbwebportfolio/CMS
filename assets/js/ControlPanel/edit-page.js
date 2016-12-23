@@ -33,9 +33,8 @@ function save() {
 		type: 'POST',
 		url: 'ControlPanel/Page/save',
 		data: data,
-		success: function(data) {
-			var json = $.parseJSON(data);
-
+		dataType: 'json',
+		success: function(json) {
 			$('#info').toggleClass('error', !json.success);
 			$('#info').text(json.message);
 
@@ -62,9 +61,7 @@ function remove() {
 	$.ajax({
 		type: 'GET',
 		url: 'ControlPanel/Page/remove?id=' + $('#page-id').val(),
-		success: function(data) {
-			showMenu('pages');
-		}
+		success: () => showMenu('pages')
 	});
 }
 

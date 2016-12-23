@@ -14,8 +14,15 @@ class Categories_model extends CI_Model
 		$counts = $this->db->get_compiled_select('categories');
 
 		// Join the counts with the categories.
-		$this->db->join("($counts) AS counts", 'id = category_id', 'INNER');
-		return $this->db->get('category_names')->result();
+		$this->db->join("($counts) AS counts", 'id = category_id', 'LEFT');
+		$result = $this->db->get('category_names')->result();
+
+		// Check for empty counts.
+		foreach ($result as $row)
+			if (empty($row->page_count))
+				$row->page_count = 0;
+
+		return $result;
 	}
 
 	/**
