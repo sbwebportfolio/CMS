@@ -69,15 +69,11 @@ class Pages_model extends CI_Model
 			'slug' => $slug,
 			'hidden' => $hidden
 		];
-		$this->db->set('updated', 'NOW()', FALSE);
 
 		// Check if the page should be created or updated.
 		$success = FALSE;
 		if ($id == -1)
-		{
-			$this->db->set('created', 'NOW()', FALSE);
 			return $this->db->insert('pages', $data) ? $this->db->insert_id() : FALSE;
-		}
 		else
 		{
 			$this->db->where('id', $id);
