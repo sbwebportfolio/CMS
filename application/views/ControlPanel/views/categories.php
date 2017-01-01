@@ -16,7 +16,7 @@
 	foreach ($categories as $category)
 	{
 	?>
-		<tr>
+		<tr onclick="location.hash = '#edit-category:<?= $category->id ?>';">
 			<td><?= $category->name ?></td>
 			<td><?= $category->page_count ?></td>
 		</tr>

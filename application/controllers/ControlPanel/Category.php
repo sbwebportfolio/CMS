@@ -24,4 +24,18 @@ class Category extends MY_Controller
 	{
 		$this->categories->remove($this->input->get('id'));
 	}
+
+	public function update()
+	{
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+
+		$success = $this->categories->update($id, $name) == 1;
+
+		// Build the result.
+		$result = ['success' => $success];
+		if (!$success)
+			$result['error'] = 'Something went wrong while trying to update the category.';
+		echo json_encode($result);
+	}
 }

@@ -3,10 +3,8 @@
 <!-- Script to update the profile. -->
 <script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/profile.js"></script>
 
-<h2>My profile</h2>
-
 <!-- Update info form. -->
-<p class="bold">Update your information</p>
+<h2>My profile</h2>
 <form id="update-user-form">
 	<p>
 		<label for="first-name">First name</label><br>
@@ -27,7 +25,7 @@
 <p id="update-info"></p>
 
 <!-- Change password form. -->
-<p class="bold">Change your password</p>
+<h2>Change your password</h2>
 <form id="change-password-form">
 	<p>
 		<label for="old-pass">Old password</label><br>

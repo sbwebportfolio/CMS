@@ -26,6 +26,15 @@ class Categories_model extends CI_Model
 	}
 
 	/**
+	 * Get a category by its id.
+	 */
+	public function get($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->get('category_names')->row();
+	}
+
+	/**
 	 * Get a category by its name.
 	 */
 	public function getByName($name)
@@ -72,5 +81,14 @@ class Categories_model extends CI_Model
 			];
 			$this->db->insert('categories', $data);
 		}
+	}
+
+	/**
+	 * Update a category.
+	 */
+	public function update($id, $name)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('category_names', ['name' => $name]);
 	}
 }

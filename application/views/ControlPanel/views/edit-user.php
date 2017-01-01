@@ -11,7 +11,7 @@
 <p>Last name: <?= $user->last_name ?></p>
 <p>E-mail address: <?= $user->email ?></p>
 
-<p class="bold">Remove this user</p>
+<h2>Remove this user</h2>
 <p><button id="remove">Remove</button></p>
 
 <!-- Remove user overlay. -->
