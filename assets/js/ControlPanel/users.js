@@ -28,7 +28,7 @@ function addUser(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/User/register',
+		url: './User/register',
 		data: data,
 		dataType: 'json',
 		success: showResult

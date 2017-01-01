@@ -12,7 +12,7 @@ $(document).ready(function() {
 function remove() {
 	$.ajax({
 		type: 'GET',
-		url: 'ControlPanel/User/remove?id=' + $('#user-id').val(),
+		url: './User/remove?id=' + $('#user-id').val(),
 		success: () => showMenu('users')
 	});
 }

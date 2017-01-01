@@ -53,9 +53,6 @@ class Pages_model extends CI_Model
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('pages');
-
-		$this->db->where('page_id', $id);
-		$this->db->delete('categories');
 	}
 
 	/**

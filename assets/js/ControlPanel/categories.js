@@ -18,7 +18,7 @@ function addCategory(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/Category/create',
+		url: './Category/create',
 		data: data,
 		dataType: 'json',
 		success: showResult

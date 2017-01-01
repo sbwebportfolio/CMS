@@ -31,7 +31,7 @@ function save() {
 	// Post the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/Page/save',
+		url: './Page/save',
 		data: data,
 		dataType: 'json',
 		success: function(json) {
@@ -60,7 +60,7 @@ function remove() {
 	// Do the remove request.
 	$.ajax({
 		type: 'GET',
-		url: 'ControlPanel/Page/remove?id=' + $('#page-id').val(),
+		url: './Page/remove?id=' + $('#page-id').val(),
 		success: () => showMenu('pages')
 	});
 }

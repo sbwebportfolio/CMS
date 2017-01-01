@@ -50,9 +50,6 @@ class Categories_model extends CI_Model
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('category_names');
-
-		$this->db->where('category_id', $id);
-		$this->db->delete('categories');
 	}
 
 	/**

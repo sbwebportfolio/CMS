@@ -20,7 +20,7 @@ function updateUser(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/User/update',
+		url: './User/update',
 		data: data,
 		dataType: 'json',
 		success: function(json) {
@@ -57,7 +57,7 @@ function changePass(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/User/changePassword',
+		url: './User/changePassword',
 		data: data,
 		dataType: 'json',
 		success: function(json) {

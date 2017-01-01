@@ -126,7 +126,7 @@ function showMenu(name, data, success) {
 	// Get the menu content.
 	$.ajax({
 		type: 'GET',
-		url: 'ControlPanel/ControlPanel/show?menu=' + currentMenu,
+		url: './ControlPanel/show?menu=' + currentMenu,
 		data: data == null ? {} : {id: data},
 		dataType: 'html',
 		success: function(data) {

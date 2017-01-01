@@ -22,7 +22,7 @@ function updateCategory(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: 'ControlPanel/Category/update',
+		url: './Category/update',
 		data: data,
 		dataType: 'json',
 		success: function(json) {
@@ -39,7 +39,7 @@ function updateCategory(e) {
 function remove() {
 	$.ajax({
 		type: 'GET',
-		url: 'ControlPanel/Category/remove?id=' + $('#category-id').val(),
+		url: './Category/remove?id=' + $('#category-id').val(),
 		success: () => showMenu('categories')
 	});
 }
