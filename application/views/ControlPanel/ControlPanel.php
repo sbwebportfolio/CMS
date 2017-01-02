@@ -25,7 +25,6 @@
 					<div menu="pages">Pages</div>
 					<div menu="categories">Categories</div>
 					<div menu="media">Media</div>
-					<div menu="menus">Menus</div>
 					<div menu="users">Users</div>
 					<div menu="profile">My profile</div>
 				</div>

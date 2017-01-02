@@ -1,3 +1,7 @@
+--
+-- Drop all tables.
+--
+
 DROP TABLE IF EXISTS `categories`;
 DROP TABLE IF EXISTS `category_names`;
 DROP TABLE IF EXISTS `pages`;

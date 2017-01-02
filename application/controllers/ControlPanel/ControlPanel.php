@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends MY_Controller
 {
 	const MENU_ITEMS = [
-		'pages', 'menus', 'users', 'profile', 'edit-page', 'media', 'edit-user', 'categories', 'edit-category'
+		'pages', 'users', 'profile', 'edit-page', 'media', 'edit-user', 'categories', 'edit-category'
 	];
 
 	public function index()
@@ -61,11 +61,6 @@ class ControlPanel extends MY_Controller
 	private function show_pages()
 	{
 		return ['pages' => $this->pages->all(TRUE)];
-	}
-
-	private function show_new_page()
-	{
-		
 	}
 
 	private function show_edit_page()
