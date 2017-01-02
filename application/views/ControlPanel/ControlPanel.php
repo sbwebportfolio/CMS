@@ -31,7 +31,7 @@
 				</div>
 				<div id="content-row">
 					<div id="content">
-						Something something content
+						<h2>Scorpiac control panel</h2>
 					</div>
 					<div id="loading">
 						<img src="<?= base_url() ?>assets/img/loading.gif">
