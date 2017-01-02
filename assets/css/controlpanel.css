@@ -142,22 +142,16 @@ header > h3, footer > h3 {
 	order: 0;
 }
 
-[menu] {
+#menu > div {
 	cursor: pointer;
 	width: calc(100% - 30px);
 	padding: 10px;
 	margin-left: 10px;
 }
 
-[menu]:hover, [menu].highlight {
+#menu > div:hover, #menu > div.highlight {
 	color: #000;
 	background-color: #f4f4ff;
-}
-
-.menu-group-items {
-	width: calc(100% - 10px);
-	margin-left: 10px;
-	background-color: #228;
 }
 
 /*==== Classes ====*/

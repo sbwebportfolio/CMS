@@ -27,6 +27,7 @@
 					<div menu="media">Media</div>
 					<div menu="users">Users</div>
 					<div menu="profile">My profile</div>
+					<div onclick="location.href = '/ControlPanel/User/logout'">Log out</div>
 				</div>
 				<div id="content-row">
 					<div id="content">
