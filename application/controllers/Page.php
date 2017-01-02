@@ -12,7 +12,7 @@ class Page extends CI_Controller
 	public function _remap($name, $args)
 	{
 		// Check for arguments, which invalidate the url.
-		if (!empty($args))
+		if (!file_exists(APPPATH . 'views/page.php') || !empty($args))
 			show_404();
 
 		// Get the page, check if it exists.

@@ -13,7 +13,7 @@ class Category extends CI_Controller
 	public function _remap($name, $args)
 	{
 		// Check for arguments, which invalidate the url.
-		if (!empty($args))
+		if (!file_exists(APPPATH . 'views/category.php') || !empty($args))
 			show_404();
 
 		// Get the category.

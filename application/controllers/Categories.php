@@ -12,7 +12,7 @@ class Categories extends CI_Controller
 	public function _remap($name, $args)
 	{
 		// Check for a name or arguments, which invalidate the url.
-		if ($name !== 'index' || !empty($args))
+		if (!file_exists(APPPATH . 'views/categories.php') || $name !== 'index' || !empty($args))
 			show_404();
 		
 		$this->load->view('categories', ['categories' => $this->categories->all()]);
