@@ -19,8 +19,8 @@ class MY_Controller extends CI_Controller
 	{
 		if (!$this->ion_auth->logged_in())
 		{
-		echo json_encode(['error' => 'You are not logged in.']);
-		exit();
+			echo json_encode(['error' => 'You are not logged in.']);
+			exit();
 		}
 	}
 

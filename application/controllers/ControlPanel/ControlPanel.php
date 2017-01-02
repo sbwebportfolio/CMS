@@ -40,7 +40,7 @@ class ControlPanel extends MY_Controller
 			$data = [];
 
 			// If a custom method exists, call that to get the data.
-			$function = 'show_' . str_replace('-', '_', $menu);
+			$function = 'show_' . $menu;
 			if (method_exists($this, $function))
 				$data = $this->$function();
 
