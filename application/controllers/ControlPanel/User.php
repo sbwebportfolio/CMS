@@ -29,7 +29,7 @@ class User extends MY_Controller
 	public function logout()
 	{
 		$this->ion_auth->logout();
-		redirect('/ControlPanel');
+		redirect('/ControlPanel/ControlPanel');
 	}
 
 	public function remove()
