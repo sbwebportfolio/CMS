@@ -8,7 +8,7 @@
 		<title>Log in to control panel</title>
 		
 		<!-- Stylesheets -->
-		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
+		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 		<!-- Scripts -->
@@ -40,7 +40,7 @@
 				</form>
 				<!-- Recover -->
 				<form id="recover-form">
-					<h3>Recover account</h3>
+					<h3>Forgot password</h3>
 					<p>
 						<label for="email">E-mail address</label><br>
 						<input id="email" type="text" required>

@@ -56,4 +56,20 @@ function login(e) {
  */
 function recover(e) {
 	e.preventDefault();
+
+	// Get the data.
+	var data = {
+		email: $('#email').val()
+	};
+
+	// Do the request.
+	$.ajax({
+		type: 'POST',
+		url: './User/passwordRecovery',
+		data: data,
+		dataType: 'json',
+		success: function(json) {
+			$('#info').text(json.message);
+		}
+	});
 }
