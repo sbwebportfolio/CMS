@@ -1,6 +1,9 @@
 'use strict';
 
+var $info;
+
 $(document).ready(function() {
+	$info = $('#info');
 	$("#category-add-form").on('submit', addCategory);
 });
 
@@ -9,7 +12,7 @@ $(document).ready(function() {
  */
 function addCategory(e) {
 	e.preventDefault();
-	$('#info').empty();
+	$info.empty();
 
 	// Get the data.
 	var data = {
@@ -19,7 +22,7 @@ function addCategory(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: './Category/create',
+		url: '/ControlPanel/Category/create',
 		data: data,
 		dataType: 'json',
 		success: showResult
@@ -30,11 +33,9 @@ function addCategory(e) {
  * Show the result of adding a category.
  */
 function showResult(json) {
-	// Check for errors.
-	if (json.error != null) {
-		$('#info').addClass('error');
-		$('#info').text(json.error);
-	}
-	else
-		refreshContent(() => $('#info').text('The category was added successfully.'));
+	$info.toggleClass('error', !json.success);
+	$info.text(json.message);
+
+	if (json.success)
+		refreshContent();
 }

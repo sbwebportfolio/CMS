@@ -105,7 +105,7 @@ function menuFromHash() {
  * @param name The name of the menu.
  * @param data The menu data, typically an id.
  */
-function showMenu(name, data, success) {
+function showMenu(name, data) {
 	showLoading();
 
 	if (data == '')
@@ -131,15 +131,8 @@ function showMenu(name, data, success) {
 		url: './ControlPanel/show?menu=' + currentMenu,
 		data: data == null ? {} : {id: data},
 		dataType: 'html',
-		success: function(data) {
-			$content.html(data);
-
-			if (typeof success === 'function')
-				success();
-		},
-		error: function(data) {
-			$content.html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>');
-		},
+		success: data => $content.html(data),
+		error: data => $content.html('<h1 class="error">An error occurred: ' + data.status + ' ' + data.statusText + '</h1>'),
 		complete: hideLoading
 	});
 }

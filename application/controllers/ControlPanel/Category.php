@@ -17,7 +17,7 @@ class Category extends MY_Controller
 	public function create()
 	{
 		$this->categories->create($this->input->post('name'));
-		echo json_encode(['success' => TRUE]);
+		echo json_encode(['success' => TRUE, 'message' => 'The category was added successfully.']);
 	}
 
 	public function remove()

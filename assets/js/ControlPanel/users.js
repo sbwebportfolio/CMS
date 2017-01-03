@@ -46,5 +46,5 @@ function showResult(json) {
 		$('#info').text(json.error);
 	}
 	else
-		refreshContent(() => $('#info').text('The user was added successfully.'));
+		refreshContent();
 }
