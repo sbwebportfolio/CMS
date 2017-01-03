@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 	$('#remove').on('click', () => $('#remove-dialog').visible());
 

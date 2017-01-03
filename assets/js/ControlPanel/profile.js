@@ -1,8 +1,9 @@
+'use strict';
+
 $(document).ready(function() {
 	$("#update-user-form").on('submit', updateUser);
 	$("#change-password-form").on('submit', changePass);
 });
-
 
 /**
  * Update the user's information.

@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 	// Button events.
 	$('#save').on('click', save);

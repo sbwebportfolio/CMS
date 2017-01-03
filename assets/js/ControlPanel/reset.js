@@ -1,3 +1,5 @@
+'use strict';
+
 var $info;
 
 $(document).ready(function() {

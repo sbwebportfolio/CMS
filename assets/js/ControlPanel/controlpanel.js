@@ -1,3 +1,5 @@
+'use strict';
+
 // Menu item properties.
 const menuHighlightClass = 'highlight';
 var currentMenu;

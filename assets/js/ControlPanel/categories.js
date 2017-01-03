@@ -1,7 +1,8 @@
+'use strict';
+
 $(document).ready(function() {
 	$("#category-add-form").on('submit', addCategory);
 });
-
 
 /**
  * Add a new category.

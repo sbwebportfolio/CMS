@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 	$('#recover-button').on('click', () => location.href = '/ControlPanel/ForgotPassword');
 	$("#login-form").on('submit', login);

@@ -1,7 +1,8 @@
+'use strict';
+
 $(document).ready(function() {
 	$("#user-add-form").on('submit', addUser);
 });
-
 
 /**
  * Add a new user.
