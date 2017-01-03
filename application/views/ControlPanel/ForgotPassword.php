@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html">
 		
-		<title>Log in to control panel</title>
+		<title>Forgot password</title>
 		
 		<!-- Stylesheets -->
 		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css">
