@@ -13,33 +13,25 @@
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/login.js"></script>
+		<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/forgot.js"></script>
 	</head>
 	<body>
 		<div id="login-container">
 			<div id="login-content">
-				<!-- Login -->
-				<form id="login-form">
-					<h3>Log in</h3>
+				<!-- Forgot password -->
+				<form id="forgot-form">
+					<h3>Forgot password</h3>
 					<p>
-						<label for="user">E-mail address</label><br>
-						<input id="user" type="text" required>
+						<label for="email">E-mail address</label><br>
+						<input id="email" type="text" required>
 					</p>
 					<p>
-						<label for="pass">Password</label><br>
-						<input id="pass" type="password" required>
-					</p>
-					<p>
-						<input id="remember" type="checkbox">
-						<label for="remember">Remember me</label>
-					</p>
-					<p>
-						<button class="blue">Log in</button>
-						<button type="button" id="recover-button">Forgot password?</button>
+						<button type="button" id="back-button">Back to login</button>
+						<button class="blue">Send recovery email</button>
 					</p>
 				</form>
 				<!-- Information -->
-				<p id="info" class="error"></p>
+				<p id="info"></p>
 			</div>
 		</div>
 	</body>
