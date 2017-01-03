@@ -9,9 +9,9 @@ class ControlPanel extends MY_Controller
 
 	public function index()
 	{
-		// If the user is not logged in, load the login view.
+		// Check if the user is logged in.
 		if (!$this->ion_auth->logged_in())
-			$this->load->view('ControlPanel/Login');
+			redirect('ControlPanel/Login');
 		else
 		{
 			// Load the control panel.

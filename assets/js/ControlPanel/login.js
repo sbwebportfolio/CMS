@@ -46,7 +46,7 @@ function login(e) {
 			if (json.error)
 				$('#info').html(json.error);
 			else
-				location.reload(true);
+				location.href = './ControlPanel';
 		}
 	});
 }

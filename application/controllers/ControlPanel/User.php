@@ -24,14 +24,8 @@ class User extends MY_Controller
 	}
 
 	/**
-	 * Log the current user out.
+	 * Remove a user.
 	 */
-	public function logout()
-	{
-		$this->ion_auth->logout();
-		redirect('/ControlPanel/ControlPanel');
-	}
-
 	public function remove()
 	{
 		$this->checkAjax();
@@ -57,7 +51,7 @@ class User extends MY_Controller
 			$code = $reset['forgotten_password_code'];
 			$this->config->load('ion_auth', TRUE);
 			$url = $this->config->item('site_title', 'ion_auth');
-			$recoverUrl = 'http://' . $url . '/ControlPanel/User/recoverComplete/' . $code;
+			$recoverUrl = 'http://' . $url . '/ControlPanel/User/recoverComplete?code=' . $code;
 
 			// Send the recovery mail.
 			$this->load->library('email');
@@ -80,8 +74,9 @@ class User extends MY_Controller
 	/**
 	 * Show the password recovery view.
 	 */
-	public function recoverComplete($code)
+	public function recoverComplete()
 	{
+		$code = $this->input->get('code');
 		$this->load->view('ControlPanel/ResetPassword', ['code' => $code]);
 	}
 

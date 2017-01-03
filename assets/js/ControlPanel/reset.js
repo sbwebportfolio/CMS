@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$info = $('#info');
 
 	$('#reset-form').on('submit', reset);
-	$('#to-login').on('click', () => location.href = '../../ControlPanel');
+	$('#to-login').on('click', () => location.href = '/ControlPanel/Login');
 });
 
 /**
@@ -31,7 +31,7 @@ function reset(e) {
 	// Do the request.
 	$.ajax({
 		type: 'POST',
-		url: '../passwordReset',
+		url: '/ControlPanel/User/passwordReset',
 		data: data,
 		dataType: 'json',
 		success: function(json) {
