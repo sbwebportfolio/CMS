@@ -11,3 +11,4 @@ A minimalistic CMS made for CodeIgniter.
 ### Setup
 1. Copy all files from the CMS to the site directory.
 1. Execute the SQL code from sql/controlpanel.sql.
+1. Change the autoload configuration (application/config/autoload.php) to add 'ion_auth' to libraries and 'url' to helper files.
