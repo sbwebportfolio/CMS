@@ -4,6 +4,7 @@ Layout of this css file:
 - Tables
 - Input
 - Containers
+- Header, footer
 - Menu
 - Classes
 - Id
@@ -125,6 +126,8 @@ input[type="text"]:not(.full-width), input[type="password"] {
 	background-color: #f4f4ff;
 }
 
+/* Header, footer */
+
 header, footer {
 	text-align: right;
 	height: 30px;
@@ -142,14 +145,16 @@ header > h3, footer > h3 {
 	order: 0;
 }
 
-#menu > div {
-	cursor: pointer;
+nav > a {
+	display: block;
 	width: calc(100% - 30px);
 	padding: 10px;
 	margin-left: 10px;
+	text-decoration: none;
+	color: #fff;
 }
 
-#menu > div:hover, #menu > div.highlight {
+nav > a:hover, nav > a.highlight {
 	color: #000;
 	background-color: #f4f4ff;
 }

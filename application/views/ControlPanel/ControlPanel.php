@@ -21,14 +21,14 @@
 				<h3>Hello, <?= $user->first_name ? $user->first_name : $user->email ?></h3>
 			</header>
 			<div id="content-wrapper" class="row">
-				<div id="menu">
-					<div menu="pages">Pages</div>
-					<div menu="categories">Categories</div>
-					<div menu="media">Media</div>
-					<div menu="users">Users</div>
-					<div menu="profile">My profile</div>
-					<div onclick="location.href = '/ControlPanel/Logout'">Log out</div>
-				</div>
+				<nav id="menu">
+					<a href="#pages">Pages</a>
+					<a href="#categories">Categories</a>
+					<a href="#media">Media</a>
+					<a href="#users">Users</a>
+					<a href="#profile">My profile</a>
+					<a href="/ControlPanel/Logout">Log out</a>
+				</nav>
 				<div id="content-row">
 					<div id="content">
 						<h2>Scorpiac control panel</h2>

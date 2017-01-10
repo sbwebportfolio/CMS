@@ -30,8 +30,6 @@ $(document).ready(function() {
 	// Get the elements.
 	$content = $('#content');
 	$loading = $('#loading');
-
-	initializeMenu();
 	hideLoading();
 
 	// Hook into the hash change event.
@@ -62,21 +60,6 @@ function hideLoading() {
 	showingLoading = false;
 	$content.show();
 	$loading.hide();
-}
-
-/**
- * Initialize the menu.
- */
-function initializeMenu() {
-	var $menu = $('#menu');
-
-	// Find each menu item, set the click function, save it.
-	$menu.find('[menu]').each(function() {
-		var $this = $(this);
-		var menuString = $this.attr('menu');
-
-		$this.on('click', () => showMenu(menuString));
-	});
 }
 
 /**
@@ -141,14 +124,14 @@ function showMenu(name, data) {
  * Update the menu highlight.
  */
 function updateMenu(prevMenuString) {
-	var prevMenu = $('[menu="' + prevMenuString + '"]');
-	var menu = $('[menu="' + currentMenu + '"]');
+	var $prevMenu = $('nav > a[href="#' + prevMenuString + '"]');
+	var $menu = $('nav > a[href="#' + currentMenu + '"]');
 
 	// Un-highlight the previous menu, highlight the current one.
-	if (prevMenu)
-		prevMenu.removeClass(menuHighlightClass);
-	if (menu)
-		menu.addClass(menuHighlightClass);
+	if ($prevMenu)
+		$prevMenu.removeClass(menuHighlightClass);
+	if ($menu)
+		$menu.addClass(menuHighlightClass);
 }
 
 /**
