@@ -28,6 +28,7 @@ class Page extends MY_Controller
 		$content = $this->input->post('content');
 		$slug = $this->input->post('slug');
 		$hidden = $this->input->post('hidden') == "true";
+		$template = $this->input->post('template');
 		$categories = $this->input->post('categories');
 
 		// The categories should be an array.
@@ -46,7 +47,7 @@ class Page extends MY_Controller
 			$result['message'] = 'The slug cannot be empty.';
 		else
 		{
-			 $newId = $this->pages->upsert($id, $title, $content, $slug, $hidden);
+			 $newId = $this->pages->upsert($id, $title, $content, $slug, $hidden, $template);
 			 $result['success'] = $newId !== FALSE;
 
 			// Set the categories.

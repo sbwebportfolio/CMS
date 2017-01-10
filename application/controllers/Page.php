@@ -7,19 +7,25 @@ class Page extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('pages_model', 'pages');
+		$this->load->model('templates_model', 'templates');
 	}
 
 	public function _remap($name, $args)
 	{
 		// Check for arguments, which invalidate the url.
-		if (!file_exists(APPPATH . 'views/page.php') || !empty($args))
+		if (!empty($args))
 			show_404();
 
 		// Get the page, check if it exists.
 		$page = $this->pages->getBySlug($name);
 		if ($page == NULL)
 			show_404();
+
+		// Check if the template exists, otherwise use the default one.
+		$template = $page->template;
+		if (!file_exists(APPPATH . 'views/templates/' . $template . '.php'))
+			$template = $this->templates->default();
 		
-		$this->load->view('page', ['page' => $page]);
+		$this->load->view('templates/' . $template, ['page' => $page]);
 	}
 }

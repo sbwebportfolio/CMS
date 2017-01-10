@@ -61,13 +61,14 @@ class Pages_model extends CI_Model
 	 * 
 	 * @return The id of the page if the upsert was successful, or FALSE otherwise.
 	 */
-	public function upsert($id, $title, $content, $slug, $hidden)
+	public function upsert($id, $title, $content, $slug, $hidden, $template)
 	{
 		$data = [
 			'title' => $title,
 			'content' => $content,
 			'slug' => $slug,
-			'hidden' => $hidden
+			'hidden' => $hidden,
+			'template' => $template
 		];
 
 		// Check if the page should be created or updated.
@@ -86,6 +87,7 @@ class Pages_model extends CI_Model
 	 */
 	public function newPage()
 	{
+		$this->load->model('templates_model', 'templates');
 		$now = $this->sqlNow();
 
 		return (object)[
@@ -96,7 +98,8 @@ class Pages_model extends CI_Model
 			'created' => $now,
 			'updated' => $now,
 			'slug' => '',
-			'hidden' => 0
+			'hidden' => 0,
+			'template' => $this->templates->default()
 		];
 	}
 

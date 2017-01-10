@@ -32,6 +32,7 @@ class ControlPanel extends MY_Controller
 		$this->load->model('pages_model', 'pages');
 		$this->load->model('categories_model', 'categories');
 		$this->load->model('media_model', 'media');
+		$this->load->model('templates_model', 'templates');
 
 		// Get the requested menu, check if it is valid.
 		$menu = $this->input->get('menu');
@@ -68,7 +69,8 @@ class ControlPanel extends MY_Controller
 		$id = $this->input->get('id');
 		return [
 			'page' => $id == -1 ? $this->pages->newPage() : $this->pages->get($id),
-			'categories' => $this->categories->all()
+			'categories' => $this->categories->all(),
+			'templates' => $this->templates->all()
 		];
 	}
 

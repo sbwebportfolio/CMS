@@ -27,6 +27,7 @@ function save() {
 		content: $('#editor').val(),
 		slug: $('#slug').val(),
 		hidden: $('#hidden').is(':checked'),
+		template: $('#template').val(),
 		categories: categories
 	};
 

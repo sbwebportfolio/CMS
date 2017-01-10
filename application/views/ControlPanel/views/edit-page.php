@@ -36,6 +36,20 @@
 				<input id="hidden" type="checkbox" <?= $page->hidden ? 'checked' : '' ?>>
 				<label for="hidden">Hidden</label>
 			</p>
+			<p>
+				<label>Template:</label>
+				<select id="template">
+					<?php
+					foreach ($templates as $template)
+					{
+						$selected = $page->template === $template ? 'selected="selected"' : '';
+					?>
+						<option value="<?= $template ?>" <?= $selected ?>><?= $template ?></option>
+					<?php
+					}
+					?>
+				</select>
+			</p>
 			<p>Categories:</p>
 			<!-- Create a checkbox for each category. -->
 			<?php

@@ -17,6 +17,7 @@ CREATE TABLE `pages` (
 	`author` int(11) UNSIGNED NOT NULL,
 	`slug` varchar(255) NOT NULL,
 	`hidden` bit(1) NOT NULL DEFAULT b'0',
+	`template` varchar(255) NOT NULL,
 	`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (`id`),
