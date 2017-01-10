@@ -24,7 +24,7 @@ class Page extends CI_Controller
 		// Check if the template exists, otherwise use the default one.
 		$template = $page->template;
 		if (!file_exists(APPPATH . 'views/templates/' . $template . '.php'))
-			$template = $this->templates->default();
+			$template = $this->templates->getDefault();
 		
 		$this->load->view('templates/' . $template, ['page' => $page]);
 	}

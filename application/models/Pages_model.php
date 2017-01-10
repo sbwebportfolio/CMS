@@ -99,7 +99,7 @@ class Pages_model extends CI_Model
 			'updated' => $now,
 			'slug' => '',
 			'hidden' => 0,
-			'template' => $this->templates->default()
+			'template' => $this->templates->getDefault()
 		];
 	}
 
