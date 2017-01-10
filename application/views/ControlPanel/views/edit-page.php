@@ -14,7 +14,7 @@
 			Slug: <input id="slug" type="text" maxlength="255" placeholder="e.g.: my-page" value="<?= $page->slug ?>" required>
 			<button id="suggest-slug">Suggest a slug</button>
 		</p>
-		<p><textarea id="editor" class="full-width"><?= $page->content ?></textarea></p>
+		<p><textarea name='editor' id="editor" class="full-width"><?= $page->content ?></textarea></p>
 	</div>
 	<div class="col big-margin">
 		<!-- About this page -->
