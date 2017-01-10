@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to add a new category. -->
-<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/categories.js"></script>
+<script type="text/javascript" src="/assets/js/ControlPanel/categories.js"></script>
 
 <h2>Categories</h2>
 

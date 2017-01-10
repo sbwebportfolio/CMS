@@ -8,12 +8,12 @@
 		<title>Control panel</title>
 		
 		<!-- Stylesheets -->
-		<link href="<?= base_url() ?>assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/css/controlpanel.css" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/controlpanel.js"></script>
+		<script type="text/javascript" src="/assets/js/ControlPanel/controlpanel.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -34,7 +34,7 @@
 						<h2>Scorpiac control panel</h2>
 					</div>
 					<div id="loading">
-						<img src="<?= base_url() ?>assets/img/loading.gif">
+						<img src="/assets/img/loading.gif">
 					</div>
 				</div>
 			</div>

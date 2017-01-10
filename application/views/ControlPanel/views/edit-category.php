@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to update the category. -->
-<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/edit-category.js"></script>
+<script type="text/javascript" src="/assets/js/ControlPanel/edit-category.js"></script>
 
 <h2>Category</h2>
 

@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <!-- Script to update the profile. -->
-<script type="text/javascript" src="<?= base_url() ?>assets/js/ControlPanel/edit-user.js"></script>
+<script type="text/javascript" src="/assets/js/ControlPanel/edit-user.js"></script>
 
 <h2>User profile</h2>
 
