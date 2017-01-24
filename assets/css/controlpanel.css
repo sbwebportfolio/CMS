@@ -228,6 +228,10 @@ nav > a:hover, nav > a.highlight {
 	margin: 0 auto;
 }
 
+.draggable {
+	cursor: all-scroll;
+}
+
 /*==== Ids ====*/
 
 #editor {

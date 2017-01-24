@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControlPanel extends MY_Controller
 {
 	const MENU_ITEMS = [
-		'pages', 'users', 'profile', 'edit-page', 'media', 'edit-user', 'categories', 'edit-category'
+		'pages', 'users', 'profile', 'edit-page', 'media', 'edit-user', 'categories', 'edit-category', 'menus', 'edit-menu'
 	];
 
 	public function index()
@@ -33,6 +33,7 @@ class ControlPanel extends MY_Controller
 		$this->load->model('categories_model', 'categories');
 		$this->load->model('media_model', 'media');
 		$this->load->model('templates_model', 'templates');
+		$this->load->model('menus_model', 'menus');
 
 		// Get the requested menu, check if it is valid.
 		$menu = $this->input->get('menu');
@@ -107,5 +108,16 @@ class ControlPanel extends MY_Controller
 	private function show_edit_category()
 	{
 		return ['category' => $this->categories->get($this->input->get('id'))];
+	}
+
+	private function show_menus()
+	{
+		return ['menus' => $this->menus->all()];
+	}
+
+	private function show_edit_menu()
+	{
+		$name = $this->input->get('id');
+		return ['name' => $name, 'items' => $this->menus->all()[$name], 'pages' => $this->pages->all(TRUE)];
 	}
 }

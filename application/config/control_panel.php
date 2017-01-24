@@ -8,3 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The default page template to use.
 */
 $config['default_template'] = 'page';
+
+/*
+| -------------------------------------------------------------------
+| Menus
+| -------------------------------------------------------------------
+| The available menus for this site.
+*/
+$config['menus'] = [];
