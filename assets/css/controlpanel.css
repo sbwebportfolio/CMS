@@ -192,6 +192,7 @@ nav > a:hover, nav > a.highlight {
 }
 
 .box {
+	box-sizing: border-box;
 	padding: 0 10px;
 	margin-bottom: 20px;
 	background-color: #fff;
@@ -225,6 +226,10 @@ nav > a:hover, nav > a.highlight {
 	padding: 20px;
 	width: auto;
 	margin: 0 auto;
+}
+
+.draggable {
+	cursor: all-scroll;
 }
 
 /*==== Ids ====*/
