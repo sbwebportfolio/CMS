@@ -17,4 +17,22 @@ class Menus_model extends CI_Model
 
 		return $result;
 	}
+
+	public function save($name, $items)
+	{
+		$this->load->model('pages_model', 'pages');
+
+		// First remove all menu items for this name.
+		$this->db->where('name', $name);
+		$this->db->delete('menus');
+
+		// Insert all menu items.
+		$data = ['name' => $name];
+		for ($i = 0; $i < count($items); $i++)
+		{
+			$data['position'] = $i;
+			$data['page_id'] = $this->pages->getBySlug($items[$i])->id;
+			$this->db->insert('menus', $data);
+		}
+	}
 }

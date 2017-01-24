@@ -1,8 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<!-- Script to update the menu. -->
+<script type="text/javascript" src="/assets/js/ControlPanel/edit-menu.js"></script>
+
 <h2>Edit menu</h2>
 
-<p>Name: <?= $name ?></p>
+<p>Name: <span id="name"><?= $name ?></span></p>
 
 <!-- Page items table. -->
 <table>
@@ -15,11 +18,14 @@
 	foreach ($items as $page)
 	{
 	?>
-		<tr>
+		<tr class="menu-item">
 			<td><?= $page->title ?></td>
-			<td><?= $page->slug ?></td>
+			<td class="page-slug"><?= $page->slug ?></td>
 		</tr>
 	<?php
 	}
 	?>
 </table>
+
+<p><button id="save" class="blue">Save</button></p>
+<p id="info"></p>
