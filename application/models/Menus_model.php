@@ -9,6 +9,10 @@ class Menus_model extends CI_Model
 		$names = $this->config->item('menus');
 		$result = [];
 
+		// Add each menu name to the results, otherwise empty menus don't show up.
+		foreach ($names as $name)
+			$result[$name] = [];
+
 		// Get all menu items per menu.
 		$this->db->order_by('position', 'ASC');
 		$items = $this->db->get('menus')->result();

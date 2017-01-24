@@ -118,6 +118,6 @@ class ControlPanel extends MY_Controller
 	private function show_edit_menu()
 	{
 		$name = $this->input->get('id');
-		return ['name' => $name, 'items' => $this->menus->all()[$name]];
+		return ['name' => $name, 'items' => $this->menus->all()[$name], 'pages' => $this->pages->all(TRUE)];
 	}
 }
