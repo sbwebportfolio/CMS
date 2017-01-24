@@ -5,6 +5,7 @@
 DROP TABLE IF EXISTS `categories`;
 DROP TABLE IF EXISTS `category_names`;
 DROP TABLE IF EXISTS `pages`;
+DROP TABLE IF EXISTS `menus`;
 
 --
 -- Table structure for table `pages`.
@@ -45,4 +46,16 @@ CREATE TABLE `categories` (
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 	FOREIGN KEY (`category_id`) REFERENCES `category_names` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Table structure for table `menus`.
+--
+
+CREATE TABLE `menus` (
+	`id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` varchar(255) NOT NULL,
+	`position` int(11) UNSIGNED NOT NULL,
+	`page_id` int(11) UNSIGNED NOT NULL,
+	FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
