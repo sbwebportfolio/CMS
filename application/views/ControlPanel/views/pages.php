@@ -6,6 +6,7 @@
 <table>
 	<tr>
 		<th>Title</th>
+		<th>Slug</th>
 		<th>Categories</th>
 		<th>Last updated</th>
 		<th>Created</th>
@@ -17,6 +18,7 @@
 	?>
 		<tr onclick="location.hash = '#edit-page:<?= $page->id ?>';">
 			<td><?= $page->title ?></td>
+			<td><?= $page->slug ?></td>
 			<td><?= implode(', ', $page->categories) ?></td>
 			<td><?= $page->updated ?></td>
 			<td><?= $page->created ?></td>
