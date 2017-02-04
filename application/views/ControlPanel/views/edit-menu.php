@@ -32,16 +32,26 @@
 			?>
 		</table>
 	</div>
-	<!-- Pages box. -->
-	<div class="col big-margin box">
-		<p class="bold">Pages</p>
-		<p>Click a page to add it to the menu.</p>
-		<hr>
-		<input id="search-pages" type="text" placeholder="Type here to search...">
-		<?php
-		foreach ($pages as $page)
-			echo '<p class="link add-page" page="' . $page->id . '">' . $page->title . '</p>';
-		?>
+	<div class="col big-margin">
+		<!-- New item box. -->
+		<div class="box">
+			<p class="bold">New item</p>
+			<hr>
+			<p><input id="new-title" type="text" placeholder="Link title"></p>
+			<p><input id="new-url" type="text" placeholder="http://example.com"></p>
+			<p><button id="new-add" class="blue">Add</button></p>
+		</div>
+		<!-- Pages box. -->
+		<div class="box">
+			<p class="bold">Pages</p>
+			<p>Click a page to add it to the menu.</p>
+			<hr>
+			<input id="search-pages" type="text" placeholder="Type here to search...">
+			<?php
+			foreach ($pages as $page)
+				echo '<p class="link add-page" page="' . $page->id . '">' . $page->title . '</p>';
+			?>
+		</div>
 	</div>
 </div>
 

@@ -12,9 +12,10 @@ $(document).ready(function() {
 	$('.menu-item').on('mousedown', startDrag);
 	$(document).on('mouseup', () => $dragging = null);
 
-	// Events for adding pages.
+	// Events for adding items.
 	$('#search-pages').on('input', searchPages);
-	$('.add-page').on('click', addPage);
+	$('.add-page').on('click', addPageClick);
+	$('#new-add').on('click', addItemClick);
 });
 
 /**
@@ -90,16 +91,36 @@ function searchPages() {
 }
 
 /**
- * Add a page.
+ * Add page click event.
  */
-function addPage() {
+function addPageClick() {
 	var $this = $(this);
+	addItem($this.text(), '/Page/id/' + $this.attr('page'));
+}
 
-	// Create and add the new item.
-	var url = '/Page/id/' + $this.attr('page');
+/**
+ * Add item click event.
+ */
+function addItemClick() {
+	// Get the url, check if it is relative or has a protocol.
+	var url = $('#new-url').val();
+	if (!url.startsWith('/') && url.indexOf('://') === -1)
+		url = 'http://' + url;
+
+	addItem($('#new-title').val(), url);
+
+	// Clear the input.
+	$('#new-title').val('');
+	$('#new-url').val('');
+}
+
+/**
+ * Add a menu item to the list.
+ */
+function addItem(title, url) {
 	var $newItem = $(
 		'<tr class="menu-item draggable">'
-		+ '<td class="title">' + $this.text() + '</td>'
+		+ '<td class="title">' + title + '</td>'
 		+ '<td class="url"><a href="' + url + '">' + url + '</a></td>'
 		+ '<td><button class="remove-button">Remove</button></td>'
 		+ '</tr>'
