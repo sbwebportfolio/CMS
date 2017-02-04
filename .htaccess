@@ -1,5 +1,11 @@
 RewriteEngine on
 RewriteBase /
+
+# Force https.
+# RewriteCond %{HTTPS} off
+# RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove index.php.
 RewriteCond $1 !^(index\.php|assets|robots\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
