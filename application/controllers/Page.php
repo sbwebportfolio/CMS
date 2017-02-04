@@ -12,12 +12,20 @@ class Page extends CI_Controller
 
 	public function _remap($name, $args)
 	{
-		// Check for arguments, which invalidate the url.
-		if (!empty($args))
-			show_404();
+		// Get the page, either by id or by slug.
+		if ($name === 'id' && count($args) === 1)
+		{
+			$page = $this->pages->get($args[0]);
+			if ($page == NULL)
+				show_404();
 
-		// Get the page, check if it exists.
-		$page = $this->pages->getBySlug($name);
+			redirect('/Page/' . $page->slug);
+		}
+		else if (empty($args))
+			$page = $this->pages->getBySlug($name);
+		else
+			show_404();
+		
 		if ($page == NULL)
 			show_404();
 
