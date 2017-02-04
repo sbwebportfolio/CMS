@@ -56,6 +56,7 @@ CREATE TABLE `menus` (
 	`id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`position` int(11) UNSIGNED NOT NULL,
-	`page_id` int(11) UNSIGNED NOT NULL,
-	FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
+	`title` varchar(255) NOT NULL,
+	`url` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

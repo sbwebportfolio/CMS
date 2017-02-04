@@ -23,7 +23,13 @@ $(document).ready(function() {
 function save() {
 	// Get all menu items.
 	var items = [];
-	$('.menu-item').each((i, item) => items.push($(item).children('.page-slug').text()));
+	$('.menu-item').each((i, item) => {
+		var $item = $(item);
+		items.push({
+			title: $item.children('.title').text(),
+			url: $item.children('.url').text()
+		});
+	});
 
 	var data = {
 		name: $('#name').text(),
@@ -78,7 +84,7 @@ function searchPages() {
 
 	$('.add-page').each(function() {
 		var $this = $(this);
-		var contains = $this.text().toLowerCase().includes(text) || $this.attr('page').toLowerCase().includes(text);
+		var contains = $this.text().toLowerCase().includes(text);
 		contains ? $this.slideDown() : $this.slideUp();
 	});
 }
@@ -90,10 +96,11 @@ function addPage() {
 	var $this = $(this);
 
 	// Create and add the new item.
+	var url = '/Page/id/' + $this.attr('page');
 	var $newItem = $(
 		'<tr class="menu-item draggable">'
-		+ '<td>' + $this.text() + '</td>'
-		+ '<td class="page-slug">' + $this.attr('page') + '</td>'
+		+ '<td class="title">' + $this.text() + '</td>'
+		+ '<td class="url"><a href="' + url + '">' + url + '</a></td>'
 		+ '<td><button class="remove-button">Remove</button></td>'
 		+ '</tr>'
 	).appendTo($('#items-table'));

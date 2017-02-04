@@ -13,18 +13,18 @@
 		<!-- Page items table. -->
 		<table id="items-table">
 			<tr>
-				<th>Page</th>
-				<th>Slug</th>
+				<th>Title</th>
+				<th>Url</th>
 				<th>Actions</th>
 			</tr>
 			<!-- Create a row for each page. -->
 			<?php
-			foreach ($items as $page)
+			foreach ($items as $item)
 			{
 			?>
 				<tr class="menu-item draggable">
-					<td><?= $page->title ?></td>
-					<td class="page-slug"><?= $page->slug ?></td>
+					<td class="title"><?= $item->title ?></td>
+					<td class="url"><a href="<?= $item->url ?>"><?= $item->url ?></a></td>
 					<td><button class="remove-button">Remove</button></td>
 				</tr>
 			<?php
@@ -40,7 +40,7 @@
 		<input id="search-pages" type="text" placeholder="Type here to search...">
 		<?php
 		foreach ($pages as $page)
-			echo '<p class="link add-page" page="' . $page->slug . '">' . $page->title . '</p>';
+			echo '<p class="link add-page" page="' . $page->id . '">' . $page->title . '</p>';
 		?>
 	</div>
 </div>

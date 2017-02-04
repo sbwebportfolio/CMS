@@ -51,7 +51,7 @@ tr[onclick] {
 	cursor: pointer;
 }
 
-tr[onclick]:hover {
+tr:hover {
 	background-color: #eee;
 }
 
