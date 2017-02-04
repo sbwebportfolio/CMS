@@ -14,7 +14,6 @@
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="/assets/js/ControlPanel/controlpanel.js"></script>
-		<script type="text/javascript" src="//cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
 	</head>
 	<body>
 		<div id="container">
